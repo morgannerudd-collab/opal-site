@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opal — AI-Powered Business Management Software | Every Facet of Your Business, Finally Clear</title>
+<meta name="description" content="Opal is the AI-powered business management platform that brings every facet of your business into one clear view — financials, operations, and AI insights delivered every morning. No engineers. Setup in minutes.">
+<meta name="keywords" content="AI business management software, small business management platform, AI business dashboard, multi-business management, business operations software, AI-powered business intelligence, all-in-one business platform, franchise management software, business analytics dashboard">
+<meta property="og:title" content="Opal — AI-Powered Business Management Software">
+<meta property="og:description" content="Every facet of your business, finally clear. AI insights every morning. No engineers required.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --chalk:    #F7F5F0;
+  --air:      #EBF3EF;
+  --mist:     #C5DEDA;
+  --white:    #FFFFFF;
+  --sage:     #4A8A70;
+  --amber:    #C4894A;
+  --midnight: #141C20;
+  --text-primary:   #141C20;
+  --text-secondary: #4A6358;
+  --text-muted:     #7A9088;
+  --border:         #DDD8CF;
+  --app-font: 'IBM Plex Sans', sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--chalk);color:var(--text-primary);-webkit-font-smoothing:antialiased}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 52px;
+  background:rgba(247,245,240,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  animation:fadeDown .5s ease both;
+}
+
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}
+.nav-logo-text{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;letter-spacing:.18em;color:var(--midnight);line-height:1}
+
+/* ── OPAL NESTED DROP LOGO ── */
+@keyframes d-out{0%,100%{transform:scale(1)}50%{transform:scale(1.028)}}
+@keyframes d-mid{0%,100%{transform:scale(1)}50%{transform:scale(.965)}}
+@keyframes d-inn{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.055);opacity:1}}
+@keyframes d-bloom{0%,100%{ry:5;opacity:.22}50%{ry:9;opacity:.48}}
+@keyframes d-ripple{0%,100%{ry:2.5;opacity:.55}50%{ry:5.5;opacity:.18}}
+@keyframes d-sheen{0%{stroke-dashoffset:80;opacity:0}25%{opacity:.85}60%,100%{stroke-dashoffset:-80;opacity:0}}
+
+.d-out{animation:d-out 4.2s ease-in-out infinite;transform-origin:36px 36px}
+.d-mid{animation:d-mid 4.2s ease-in-out infinite .7s;transform-origin:36px 36px}
+.d-inn{animation:d-inn 4.2s ease-in-out infinite 1.4s;transform-origin:36px 36px}
+.d-bloom{animation:d-bloom 4.2s ease-in-out infinite;transform-origin:36px 44px}
+.d-ripple{animation:d-ripple 3s ease-in-out infinite 2.1s;transform-origin:36px 44px}
+.d-sheen{stroke-dasharray:80 200;animation:d-sheen 5s ease-in-out infinite 1s}
+
+.nav-logo:hover .d-out{animation-duration:2.1s}
+.nav-logo:hover .d-mid{animation-duration:2.1s}
+.nav-logo:hover .d-inn{animation-duration:2.1s}
+
+.nav-center{display:flex;align-items:center;gap:4px}
+
+/* dropdown triggers */
+.nav-item{position:relative}
+
+.nav-btn{
+  display:flex;align-items:center;gap:5px;
+  font-size:13px;font-weight:400;color:var(--text-muted);
+  background:none;border:none;cursor:pointer;
+  padding:7px 10px;border-radius:6px;transition:color .18s,background .18s;
+  text-decoration:none;
+}
+.nav-btn:hover,.nav-btn.active{color:var(--midnight);background:rgba(20,28,32,.05)}
+
+.nav-btn svg{transition:transform .18s}
+.nav-item:hover .nav-btn svg{transform:rotate(180deg)}
+
+/* dropdown panel */
+.dropdown{
+  position:absolute;top:calc(100% + 8px);left:0;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:14px;padding:10px;
+  min-width:220px;
+  box-shadow:0 16px 40px rgba(20,28,32,.1);
+  opacity:0;pointer-events:none;transform:translateY(-6px);
+  transition:opacity .18s,transform .18s;
+  z-index:300;
+}
+.nav-item:hover .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+
+.dd-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 12px;border-radius:8px;
+  cursor:pointer;transition:background .15s;text-decoration:none;
+}
+.dd-item:hover{background:var(--air)}
+
+.dd-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--air);border:1px solid var(--mist);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.dd-text-name{font-size:13px;font-weight:500;color:var(--midnight);margin-bottom:2px}
+.dd-text-desc{font-size:11px;color:var(--text-muted);line-height:1.4}
+
+.dd-divider{height:1px;background:var(--border);margin:6px 0}
+
+.nav-right{display:flex;align-items:center;gap:12px}
+
+.btn-ghost{font-size:13px;font-weight:400;color:var(--text-secondary);background:none;border:none;cursor:pointer;text-decoration:none;transition:color .18s;padding:7px 10px}
+.btn-ghost:hover{color:var(--midnight)}
+
+.btn-solid{font-size:13px;font-weight:500;color:var(--chalk);background:var(--midnight);border:none;border-radius:6px;padding:9px 20px;cursor:pointer;text-decoration:none;transition:opacity .18s}
+.btn-solid:hover{opacity:.82}
+
+/* ── SHARED SECTION STYLES ── */
+section{padding:92px 52px}
+.s-white{background:var(--white)}
+.s-chalk{background:var(--chalk)}
+.s-air{background:var(--air)}
+.s-dark{background:var(--midnight)}
+.s-in{max-width:1040px;margin:0 auto}
+
+.ey{font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+.s-dark .ey{color:var(--mist)}
+
+.s-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7.5vw,96px);font-weight:300;line-height:1.06;letter-spacing:-.02em;color:var(--midnight);margin-bottom:22px}
+.s-h1 em{font-style:italic;color:var(--sage)}
+
+.s-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:var(--midnight);margin-bottom:14px}
+.s-h2 em{font-style:italic;color:var(--sage)}
+.s-dark .s-h2{color:rgba(255,255,255,.9)}
+.s-dark .s-h2 em{color:var(--mist)}
+
+.s-h3{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;line-height:1.15;letter-spacing:-.02em;color:var(--midnight);margin-bottom:12px}
+.s-h3 em{font-style:italic;color:var(--sage)}
+
+.s-sub{font-size:15px;font-weight:300;line-height:1.75;color:var(--text-secondary);max-width:460px}
+.s-dark .s-sub{color:rgba(255,255,255,.4)}
+
+.btn-hero-p{font-size:14px;font-weight:500;color:var(--chalk);background:var(--midnight);border:none;border-radius:8px;padding:13px 30px;cursor:pointer;text-decoration:none;transition:opacity .18s;display:inline-block}
+.btn-hero-p:hover{opacity:.82}
+.btn-hero-g{font-size:14px;font-weight:400;color:var(--text-secondary);background:transparent;border:1px solid var(--border);border-radius:8px;padding:13px 30px;cursor:pointer;text-decoration:none;transition:border-color .18s;display:inline-block}
+.btn-hero-g:hover{border-color:var(--sage)}
+
+/* ── HERO ── */
+.hero{
+  min-height:92vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:72px 52px 60px;text-align:center;
+  background:linear-gradient(168deg,var(--chalk) 0%,var(--air) 55%,var(--mist) 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(74,138,112,.06) 0%,transparent 70%);pointer-events:none}
+
+.hero-ey{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:22px;animation:fadeUp .6s .1s ease both}
+
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7.5vw,96px);font-weight:300;line-height:1.06;letter-spacing:-.02em;color:var(--midnight);margin-bottom:22px;max-width:660px;animation:fadeUp .6s .18s ease both}
+.hero-h1 em{font-style:italic;color:var(--sage)}
+
+.hero-sub{font-size:17px;font-weight:300;line-height:1.75;color:var(--text-secondary);max-width:400px;margin:0 auto 36px;animation:fadeUp .6s .26s ease both}
+.hero-actions{display:flex;gap:12px;justify-content:center;margin-bottom:12px;animation:fadeUp .6s .33s ease both}
+.hero-note{font-size:12px;color:var(--text-muted);margin-bottom:52px;animation:fadeUp .6s .38s ease both}
+
+/* Dashboard mockup */
+.dash-wrap{width:100%;max-width:820px;animation:fadeUp .7s .46s ease both;position:relative}
+.dash-wrap::after{content:'';position:absolute;bottom:-28px;left:8%;right:8%;height:36px;background:radial-gradient(ellipse,rgba(74,138,112,.12) 0%,transparent 70%);filter:blur(8px)}
+.dash{background:rgba(255,255,255,.76);backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(197,222,218,.52);overflow:hidden;box-shadow:0 24px 60px rgba(20,28,32,.09),0 4px 16px rgba(20,28,32,.04)}
+.dash-top{display:flex;align-items:center;gap:6px;padding:11px 16px;border-bottom:1px solid rgba(197,222,218,.32);background:rgba(255,255,255,.46)}
+.dd2{width:8px;height:8px;border-radius:50%;background:var(--border)}
+.dash-url{flex:1;margin-left:8px;background:var(--air);border-radius:4px;padding:4px 12px;font-size:11px;color:var(--text-muted);font-family:var(--app-font)}
+.dash-body{padding:18px 22px 22px;font-family:var(--app-font)}
+.dash-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.dash-greet{font-size:13px;font-weight:400;color:var(--text-secondary)}
+.dash-date{font-size:11px;color:var(--text-muted)}
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
+.dstat{background:var(--air);border-radius:8px;padding:10px 12px;border:1px solid rgba(197,222,218,.3)}
+.dsl{font-size:10px;color:var(--text-muted);margin-bottom:4px;font-weight:500;letter-spacing:.02em}
+.dsv{font-family:var(--app-font);font-size:20px;font-weight:600;color:var(--midnight);line-height:1;margin-bottom:3px}
+.dss{font-size:10px;color:var(--sage);font-weight:500}
+.dss.warn{color:var(--amber)}
+.dash-pulse{background:var(--air);border:1px solid var(--mist);border-left:3px solid var(--sage);border-radius:8px;padding:11px 14px;display:flex;gap:10px;align-items:flex-start}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--sage);margin-top:5px;flex-shrink:0}
+.plbl{font-size:10px;font-weight:600;color:var(--sage);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;font-family:var(--app-font)}
+.ptxt{font-size:12px;color:var(--text-secondary);line-height:1.55;font-family:var(--app-font)}
+
+/* ── INT STRIP ── */
+.istrip{background:var(--chalk);padding:22px 52px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.istrip-lbl{font-size:11px;font-weight:400;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.istrip-logos{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.ipill{font-size:12px;font-weight:400;color:var(--text-muted);background:var(--white);border:1px solid var(--border);border-radius:4px;padding:5px 12px}
+
+/* ── VALUE PROPS ── */
+.vp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.vp-card{background:var(--air);border:1px solid var(--mist);border-radius:14px;padding:28px 30px;transition:transform .22s,box-shadow .22s}
+.vp-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(20,28,32,.05)}
+.vp-card.vp-wide{grid-column:span 2;display:flex;align-items:flex-start;gap:20px;background:var(--midnight);border-color:var(--midnight)}
+.vp-card.vp-wide .vp-h3{color:rgba(255,255,255,.88);margin-bottom:8px}
+.vp-card.vp-wide .vp-p{color:rgba(255,255,255,.45)}
+.vp-card.vp-wide .vp-icon{background:rgba(197,222,218,.12);border-color:rgba(197,222,218,.2);flex-shrink:0;margin-bottom:0;margin-top:2px}
+.vp-card.vp-wide .vp-icon svg{stroke:var(--mist)}
+.vp-icon{width:42px;height:42px;border-radius:10px;background:var(--white);border:1px solid var(--mist);display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.vp-h3{font-size:17px;font-weight:500;color:var(--midnight);margin-bottom:8px;line-height:1.25}
+.vp-p{font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+
+/* ── FEATURE CARDS ── */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:52px}
+.fc{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px 32px;transition:transform .22s,box-shadow .22s}
+.fc:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(20,28,32,.06)}
+.fc.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.ftag{display:inline-block;font-size:10px;font-weight:500;color:var(--sage);background:var(--air);border:1px solid var(--mist);border-radius:3px;padding:2px 9px;letter-spacing:.04em;margin-bottom:10px}
+.fh3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--midnight);margin-bottom:8px;line-height:1.2}
+.fp{font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+.pulse-inner{background:var(--midnight);border-radius:10px;padding:18px 20px;font-family:var(--app-font)}
+.pi-lbl{font-size:10px;font-weight:600;color:var(--mist);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+.pi-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}
+.pi-d{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.pi-d.ok{background:var(--sage)}
+.pi-d.warn{background:var(--amber)}
+.pi-t{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5;font-weight:300}
+
+/* ── CREW ── */
+.crew-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.crew-c{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:28px 22px;transition:background .2s,border-color .2s}
+.crew-c:hover{background:rgba(255,255,255,.1);border-color:rgba(197,222,218,.25)}
+.crew-icon-wrap{width:44px;height:44px;border-radius:10px;background:rgba(197,222,218,.12);border:1px solid rgba(197,222,218,.2);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.crew-c h4{font-size:15px;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:7px}
+.crew-c p{font-size:13px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.6}
+.crew-cta{display:inline-flex;align-items:center;gap:6px;background:rgba(197,222,218,.1);border:1px solid rgba(197,222,218,.22);border-radius:8px;padding:12px 22px;font-size:13px;font-weight:400;color:var(--mist);cursor:pointer;margin-top:36px;text-decoration:none;transition:background .2s}
+.crew-cta:hover{background:rgba(197,222,218,.17)}
+
+/* ── INTEGRATIONS ── */
+.int-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:48px}
+.int-c{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 16px 18px;text-align:center;transition:border-color .18s,transform .18s,box-shadow .18s;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+.int-c:hover{border-color:var(--mist);transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,28,32,.06)}
+.int-logo{height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.int-logo svg{max-height:36px;width:auto}
+.int-nm{font-size:12px;font-weight:500;color:var(--text-secondary);letter-spacing:.01em;white-space:nowrap}
+.int-more{background:var(--air);border:1px dashed var(--mist);border-radius:12px;padding:24px 16px;display:flex;align-items:center;justify-content:center;grid-column:span 2}
+.int-more span{font-size:12px;color:var(--text-muted)}
+
+/* ── PRICING ── */
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.pr-c{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px;transition:transform .2s,box-shadow .2s}
+.pr-c:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(20,28,32,.06)}
+.pr-c.feat{background:var(--midnight);border-color:var(--midnight)}
+.pr-tier{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.pr-c.feat .pr-tier{color:var(--mist)}
+.pr-amt{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--midnight);line-height:1;margin-bottom:4px}
+.pr-c.feat .pr-amt{color:rgba(255,255,255,.9)}
+.pr-per{font-size:12px;color:var(--text-muted);margin-bottom:18px}
+.pr-c.feat .pr-per{color:rgba(255,255,255,.38)}
+.pr-desc{font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.6;padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:18px}
+.pr-c.feat .pr-desc{color:rgba(255,255,255,.44);border-bottom-color:rgba(255,255,255,.1)}
+.pr-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.pr-feats li{font-size:13px;font-weight:300;color:var(--text-secondary);display:flex;gap:8px;align-items:flex-start;line-height:1.45}
+.pr-c.feat .pr-feats li{color:rgba(255,255,255,.5)}
+.pr-feats li::before{content:'—';color:var(--sage);flex-shrink:0;font-size:11px;margin-top:1px}
+.pr-c.feat .pr-feats li::before{color:var(--mist)}
+.btn-pr{display:block;width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;text-align:center;padding:12px;border-radius:7px;cursor:pointer;text-decoration:none;border:1px solid var(--midnight);color:var(--midnight);background:transparent;transition:background .18s,color .18s}
+.btn-pr:hover{background:var(--midnight);color:var(--chalk)}
+.pr-c.feat .btn-pr{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.9)}
+.pr-c.feat .btn-pr:hover{background:rgba(255,255,255,.18)}
+
+/* ── PROOF ── */
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.pf{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:26px}
+.pf-q{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.55;margin-bottom:18px}
+.pf-rule{height:1px;background:var(--border);margin-bottom:14px}
+.pf-per{display:flex;align-items:center;gap:10px}
+.pf-av{width:32px;height:32px;border-radius:50%;background:var(--mist);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--midnight)}
+.pf-name{font-size:13px;font-weight:500;color:var(--midnight)}
+.pf-role{font-size:11px;color:var(--text-muted);margin-top:1px}
+
+/* ── CTA ── */
+.cta-block{background:linear-gradient(158deg,var(--air) 0%,var(--mist) 100%);padding:104px 52px;text-align:center}
+.cta-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:var(--midnight);margin-bottom:14px}
+.cta-h2 em{font-style:italic;color:var(--sage)}
+.cta-sub{font-size:16px;font-weight:300;color:var(--text-secondary);line-height:1.7;max-width:360px;margin:0 auto 34px}
+.cta-note{font-size:12px;color:var(--text-muted);margin-top:12px}
+
+/* ── PRODUCT PAGE HERO ── */
+.prod-hero{
+  padding:80px 52px 72px;
+  background:linear-gradient(168deg,var(--chalk) 0%,var(--air) 70%,var(--mist) 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  max-width:1140px;margin:0 auto;
+}
+.prod-hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--air);border:1px solid var(--mist);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:500;color:var(--sage);letter-spacing:.04em;margin-bottom:20px}
+.prod-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,60px);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:var(--midnight);margin-bottom:16px}
+.prod-hero h1 em{font-style:italic;color:var(--sage)}
+.prod-hero p{font-size:16px;font-weight:300;line-height:1.75;color:var(--text-secondary);margin-bottom:28px}
+.prod-hero-visual{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(20,28,32,.08)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:52px}
+.about-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:48px}
+.about-stat{background:var(--air);border:1px solid var(--mist);border-radius:12px;padding:24px}
+.about-stat-val{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--midnight);line-height:1;margin-bottom:4px}
+.about-stat-val em{font-style:italic;color:var(--sage)}
+.about-stat-lbl{font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.5}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center}
+.team-av{width:64px;height:64px;border-radius:50%;background:var(--mist);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;color:var(--midnight)}
+.team-name{font-size:15px;font-weight:500;color:var(--midnight);margin-bottom:3px}
+.team-role{font-size:12px;color:var(--text-muted)}
+
+/* ── FOOTER ── */
+footer{background:var(--midnight);padding:52px}
+.ft-in{max-width:1040px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:48px;flex-wrap:wrap}
+.ft-brand{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.ft-brand-txt{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;letter-spacing:.16em;color:rgba(255,255,255,.8)}
+.ft-tag{font-size:12px;color:rgba(255,255,255,.26);font-weight:300}
+.ft-col h5{font-size:10px;font-weight:500;color:rgba(255,255,255,.28);letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ft-col a{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);text-decoration:none;transition:color .18s;cursor:pointer}
+.ft-col a:hover{color:rgba(255,255,255,.72)}
+.ft-bot{max-width:1040px;margin:30px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.ft-bot span{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.94);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+/* Curved section arrow */
+.section-arrow{display:flex;align-items:center;justify-content:center;padding:8px 0;background:transparent}
+.section-arrow svg{opacity:.35}
+
+/* Photo strip */
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:360px;overflow:hidden;border-radius:16px;margin-top:52px}
+.photo-strip-item{overflow:hidden;position:relative}
+.photo-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:brightness(.92)}
+.photo-strip-item:hover img{transform:scale(1.04)}
+.photo-strip-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(20,28,32,.3) 100%)}
+.photo-strip-caption{position:absolute;bottom:14px;left:14px;font-size:12px;font-weight:400;color:rgba(255,255,255,.8);z-index:1}
+
+/* Hero photo split */
+.hero-photo{width:100%;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(20,28,32,.12)}
+.hero-photo img{width:100%;height:320px;object-fit:cover;display:block}
+
+/* About photo */
+.about-photo{border-radius:14px;overflow:hidden;box-shadow:0 16px 40px rgba(20,28,32,.1)}
+.about-photo img{width:100%;height:400px;object-fit:cover;display:block}
+
+/* ── PAGE HEADER (inner pages) ── */
+.page-header{background:linear-gradient(168deg,var(--chalk) 0%,var(--air) 70%,var(--mist) 100%);padding:72px 52px 60px;text-align:center}
+.page-header .ey{margin-bottom:14px}
+.page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,72px);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--midnight);max-width:640px;margin:0 auto 18px}
+.page-header h1 em{font-style:italic;color:var(--sage)}
+.page-header p{font-size:17px;font-weight:300;line-height:1.7;color:var(--text-secondary);max-width:460px;margin:0 auto 32px}
+
+/* ── TWO-COL FEATURE ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:52px}
+.two-col.flip{direction:rtl}
+.two-col.flip>*{direction:ltr}
+.two-col-visual{background:var(--air);border:1px solid var(--mist);border-radius:14px;padding:32px;min-height:280px;display:flex;align-items:center;justify-content:center}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:14px 22px}
+  .nav-center{display:none}
+  section{padding:68px 22px}
+  .hero{padding:72px 22px 48px}
+  .feat-grid{grid-template-columns:1fr}
+  .fc.wide{grid-column:span 1;grid-template-columns:1fr}
+  .crew-grid{grid-template-columns:repeat(2,1fr)}
+  .int-grid{grid-template-columns:repeat(2,1fr)}
+  .int-more{grid-column:span 2}
+  .vp-grid{grid-template-columns:1fr}
+  .vp-card.vp-wide{grid-column:span 1;flex-direction:column}
+  .pr-grid{grid-template-columns:1fr}
+  .pf-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-stat-grid{grid-template-columns:1fr}
+  .about-stat-strip{grid-template-columns:repeat(2,1fr)!important}
+  .team-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr;gap:32px}
+  .prod-hero{grid-template-columns:1fr}
+  .cta-block{padding:68px 22px}
+  footer{padding:40px 22px}
+  .ft-in{flex-direction:column;gap:28px}
+  .ft-bot{flex-direction:column;gap:6px;text-align:center}
+  .istrip{padding:18px 22px}
+  .page-header{padding:52px 22px 44px}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     NAV
+════════════════════════════════ -->
+<nav>
+  <div class="nav-logo" onclick="goTo('home')">
+    <svg width="30" height="30" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="30" fill="rgba(247,245,240,.95)" stroke="rgba(74,138,112,.14)" stroke-width="1"/>
+      <path class="d-out" d="M36 9 C21 21 13 31 13 40 C13 53 23 63 36 63 C49 63 59 53 59 40 C59 31 51 21 36 9Z" fill="rgba(235,243,239,.78)" stroke="rgba(74,138,112,.38)" stroke-width="1.1"/>
+      <path class="d-mid" d="M36 19 C26 28 21 36 21 42 C21 51 28 58 36 58 C44 58 51 51 51 42 C51 36 46 28 36 19Z" fill="rgba(214,234,227,.65)" stroke="rgba(74,138,112,.45)" stroke-width=".95"/>
+      <path class="d-inn" d="M36 29 C30 36 27 40 27 44 C27 49 31 53 36 53 C41 53 45 49 45 44 C45 40 42 36 36 29Z" fill="rgba(74,138,112,.22)" stroke="rgba(74,138,112,.6)" stroke-width=".85"/>
+      <ellipse class="d-bloom" cx="36" cy="45" rx="4.5" ry="5" fill="rgba(196,137,74,.32)"/>
+      <ellipse class="d-ripple" cx="36" cy="47" rx="3" ry="2.5" fill="rgba(197,222,218,.5)"/>
+      <path class="d-sheen" d="M23 23 Q30 15 41 21" fill="none" stroke="rgba(255,255,255,.88)" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">OPAL</span>
+  </div>
+
+  <div class="nav-center">
+
+    <!-- Product dropdown -->
+    <div class="nav-item">
+      <button class="nav-btn">
+        Product
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <div class="dd-item" onclick="goTo('hub')">
+          <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div><div class="dd-text-name">Opal Hub</div><div class="dd-text-desc">Your unified portfolio view</div></div>
+        </div>
+        <div class="dd-item" onclick="goTo('pulse')">
+          <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div><div class="dd-text-name">Daily Pulse</div><div class="dd-text-desc">Your AI morning briefing</div></div>
+        </div>
+        <div class="dd-item" onclick="goTo('crew')">
+          <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="dd-text-name">Opal Crew</div><div class="dd-text-desc">AI agents for every function</div></div>
+        </div>
+        <div class="dd-divider"></div>
+        <div class="dd-item" onclick="goTo('connect')">
+          <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+          <div><div class="dd-text-name">Opal Connect</div><div class="dd-text-desc">All your tools, one picture</div></div>
+        </div>
+        <div class="dd-item" onclick="goTo('canvas')">
+          <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div><div class="dd-text-name">Opal Canvas</div><div class="dd-text-desc">White-label your platform</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integrations -->
+    <button class="nav-btn" onclick="goTo('integrations')">Integrations</button>
+
+    <!-- Pricing -->
+    <button class="nav-btn" onclick="goTo('pricing')">Pricing</button>
+
+    <!-- About -->
+    <button class="nav-btn" onclick="goTo('about')">About</button>
+
+  </div>
+
+  <div class="nav-right">
+    <a href="#" class="btn-ghost">Sign in</a>
+    <a href="#" class="btn-solid">Get started</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════
+     PAGE: HOME
+════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-ey">AI-Powered Business Management Software</div>
+    <h1 class="hero-h1">The clarity<br>you've been <em>looking for.</em></h1>
+    <p class="hero-sub">One clear view across every business you run — every morning, powered by AI, without the noise.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-hero-p">Start for free</a>
+      <a href="#" class="btn-hero-g" onclick="event.preventDefault();goTo('hub')">See how it works</a>
+    </div>
+    <p class="hero-note">No engineers. No setup fees. Up and running today.</p>
+
+    <div class="dash-wrap">
+      <div class="dash">
+        <div class="dash-top">
+          <div class="dd2"></div><div class="dd2"></div><div class="dd2"></div>
+          <div class="dash-url">app.useopal.com — Good morning, Morganne. Every facet, finally clear.</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-row">
+            <span class="dash-greet">Your portfolio · Saturday, March 28</span>
+            <span class="dash-date">6 businesses · 11 tools connected</span>
+          </div>
+          <div class="dash-stats">
+            <div class="dstat"><div class="dsl">Portfolio revenue</div><div class="dsv">$284k</div><div class="dss">↑ 12% this month</div></div>
+            <div class="dstat"><div class="dsl">Businesses on track</div><div class="dsv">5 of 6</div><div class="dss">Looking clear</div></div>
+            <div class="dstat"><div class="dsl">Needs attention</div><div class="dsv">1 today</div><div class="dss warn">Riviera Cafe</div></div>
+            <div class="dstat"><div class="dsl">AI insights this week</div><div class="dsv">14</div><div class="dss">3 acted on</div></div>
+          </div>
+          <div class="dash-pulse">
+            <div class="pdot"></div>
+            <div>
+              <div class="plbl">This morning from Opal</div>
+              <div class="ptxt">Riviera Cafe margins slipped to 18.4% — just below your 22% target. Food cost has been creeping for three weeks. Your other five businesses are clear this morning.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="istrip">
+    <div class="istrip-lbl">Connects with the tools you already use</div>
+    <div class="istrip-logos">
+      <span class="ipill">QuickBooks</span><span class="ipill">Stripe</span>
+      <span class="ipill">HubSpot</span><span class="ipill">Wave</span>
+      <span class="ipill">Google Workspace</span><span class="ipill">Calendly</span>
+      <span class="ipill">Outdoorsy</span><span class="ipill">Bouncie</span>
+      <span class="ipill">RVezy</span><span class="ipill">Intercom</span>
+      <span class="ipill">+ more</span>
+    </div>
+  </div>
+
+  <!-- Curved arrow -->
+  <div class="section-arrow" style="background:var(--white);padding:0 0 0">
+    <svg width="80" height="48" viewBox="0 0 80 48" fill="none"><path d="M40 4 C20 4 8 20 8 36 M8 36 L4 28 M8 36 L16 30" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <section class="s-white">
+    <div class="s-in">
+      <div class="ey" style="text-align:center">Why Opal</div>
+      <h2 class="s-h2" style="text-align:center;max-width:560px;margin:0 auto 14px">Clarity in minutes.<br><em>Impact for a lifetime.</em></h2>
+      <p class="s-sub" style="text-align:center;margin:0 auto 52px;max-width:400px">Everything you need — built by AI, customized to your business, running today. No engineers. No delays.</p>
+      <div class="vp-grid">
+        <div class="vp-card reveal">
+          <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3 class="vp-h3">Up in minutes</h3>
+          <p class="vp-p">Connect your tools, add your businesses, and your first Daily Pulse is ready. No implementation. No onboarding call. Opal is built to be instant.</p>
+        </div>
+        <div class="vp-card reveal">
+          <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <h3 class="vp-h3">No engineers required</h3>
+          <p class="vp-p">Opal is built for operators, not developers. If you can log into a tool, you can run Opal. Everything configured through clicks, not code. Everything configured through clicks, not code.</p>
+        </div>
+        <div class="vp-card reveal">
+          <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h3 class="vp-h3">Built for your business</h3>
+          <p class="vp-p">Opal learns your KPIs, your thresholds, your team. The AI tailors every insight to what actually matters to you — not generic benchmarks.</p>
+        </div>
+        <div class="vp-card reveal">
+          <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M16.24 7.76a6 6 0 010 8.49M4.93 4.93a10 10 0 000 14.14M7.76 7.76a6 6 0 000 8.49"/></svg></div>
+          <h3 class="vp-h3">Powered by AI</h3>
+          <p class="vp-p">Opal doesn't just display data — it understands it. Every trend, every anomaly analyzed in real time so your morning view tells you exactly what to do.</p>
+        </div>
+        <div class="vp-card reveal" style="grid-column:span 2">
+          <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="3"/><path d="M3 21v-1a7 7 0 0114 0v1"/><path d="M16 11a4 4 0 010 8"/><path d="M21 14a4 4 0 01-5 3.87"/></svg></div>
+          <div>
+            <h3 class="vp-h3">Simple by design. Flexible by AI.</h3>
+            <p class="vp-p">Setting up Opal doesn't require a manual, a consultant, or a long implementation. The AI configures itself around your business — learning what you track, how you measure success, and what you actually care about. Ask it anything. Tell it to change. It adapts. As your businesses evolve, Opal evolves with them — showing you what's possible, surfacing opportunities you didn't know to look for, and meeting you exactly where you are.</p>
+          </div>
+        </div>
+        <div class="vp-card vp-wide reveal">
+          <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <h3 class="vp-h3">Clarity in minutes. Impact for a lifetime.</h3>
+            <p class="vp-p" style="max-width:580px">The moment you open Opal for the first time, something shifts. You stop reacting and start leading. That feeling compounds. Every morning gets clearer. Every decision gets sharper. Every business gets better.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curved arrow between Why and Platform -->
+  <div class="section-arrow" style="background:var(--air);padding:4px 0">
+    <svg width="80" height="48" viewBox="0 0 80 48" fill="none"><path d="M40 4 C60 4 72 20 72 36 M72 36 L76 28 M72 36 L64 30" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <section class="s-air">
+    <div class="s-in">
+      <div class="ey">The platform</div>
+      <h2 class="s-h2">Everything you need<br>to run from <em>above.</em></h2>
+      <p class="s-sub">One platform. Every business. Total clarity.</p>
+      <div class="feat-grid" style="margin-top:40px">
+        <div class="fc reveal" onclick="goTo('pulse')" style="cursor:pointer">
+          <div class="ftag">Daily Pulse</div>
+          <h3 class="fh3">Your AI morning briefing</h3>
+          <p class="fp">Every morning, Opal surfaces what moved, what needs attention, and what to do next — before anything else.</p>
+        </div>
+        <div class="fc reveal" onclick="goTo('hub')" style="cursor:pointer">
+          <div class="ftag">Opal Hub</div>
+          <h3 class="fh3">One screen. Every business.</h3>
+          <p class="fp">Your full portfolio, visible from one view. Switch contexts instantly or see everything at once.</p>
+        </div>
+        <div class="fc reveal" onclick="goTo('connect')" style="cursor:pointer">
+          <div class="ftag">Opal Connect</div>
+          <h3 class="fh3">All your tools, one picture.</h3>
+          <p class="fp">QuickBooks, Stripe, HubSpot, and more — all feeding upward into one clear view.</p>
+        </div>
+        <div class="fc reveal" onclick="goTo('canvas')" style="cursor:pointer">
+          <div class="ftag">Opal Canvas</div>
+          <h3 class="fh3">Your brand. Your platform.</h3>
+          <p class="fp">White-label everything for clients, franchisees, or portfolio companies. Opal runs quietly underneath.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-dark">
+    <div class="s-in">
+      <div class="ey">Coming soon</div>
+      <h2 class="s-h2" style="max-width:500px">Meet your <em>Opal Crew.</em><br>They work below so you stay above.</h2>
+      <p class="s-sub">Four AI agents running Finance, Operations, Growth, and Client Success — around the clock, across every business.</p>
+      <div class="crew-grid">
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
+          <h4>Finance</h4><p>P&L monitoring, cash flow, expense alerts. Every dollar accounted for, every morning.</p>
+        </div>
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+          <h4>Operations</h4><p>Tasks, blockers, vendor commitments. Nothing falls through while you're looking at the big picture.</p>
+        </div>
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <h4>Growth</h4><p>Pipeline health, lead tracking, revenue gaps. Always watching for the next opportunity.</p>
+        </div>
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 11l1.5 1.5L21 9"/></svg></div>
+          <h4>Client Success</h4><p>Churn signals, renewals, follow-ups. No relationship goes quiet without you knowing first.</p>
+        </div>
+      </div>
+      <a href="#" class="crew-cta" onclick="event.preventDefault();goTo('crew')">Learn more about Opal Crew →</a>
+    </div>
+  </section>
+
+  <section class="s-chalk">
+    <div class="s-in">
+      <div class="ey">From operators</div>
+      <h2 class="s-h2">What total clarity<br>actually <em>feels like.</em></h2>
+      <div class="pf-grid reveal">
+
+        <div class="pf">
+          <div class="pf-q">"I used to spend the first hour of every morning just figuring out where things stood. Now I open Opal and it's already done."</div>
+          <div class="pf-rule"></div>
+          <div class="pf-per">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&fit=crop&crop=face" alt="Morganne R." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0"/>
+            <div><div class="pf-name">Morganne R.</div><div class="pf-role">Operator · 6 businesses</div></div>
+          </div>
+        </div>
+
+        <div class="pf">
+          <div class="pf-q">"I white-labeled Opal for my franchise clients. They think I built it — that's exactly the point. It disappears into your brand and just works."</div>
+          <div class="pf-rule"></div>
+          <div class="pf-per">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&fit=crop&crop=face" alt="David K." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0"/>
+            <div><div class="pf-name">David K.</div><div class="pf-role">Agency owner · 14 portfolios</div></div>
+          </div>
+        </div>
+
+        <div class="pf">
+          <div class="pf-q">"The Daily Pulse changed how I start every day. I open Opal first, get the view, make my calls, and move. No more dreading what I missed overnight."</div>
+          <div class="pf-rule"></div>
+          <div class="pf-per">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80&fit=crop&crop=face" alt="Sandra W." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0"/>
+            <div><div class="pf-name">Sandra W.</div><div class="pf-role">Franchise operator · 4 locations</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Branding photo strip - real photography -->
+      <div class="photo-strip reveal-scale" style="margin-top:48px;border-radius:14px;height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+
+        <!-- Portrait 1: Woman at laptop, morning -->
+        <div style="border-radius:12px;overflow:hidden;min-height:300px;position:relative">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=top" alt="Operator reviewing dashboard" style="width:100%;height:300px;object-fit:cover;object-position:top;display:block;filter:brightness(.92)"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(20,28,32,.75) 100%)"></div>
+          <div style="position:absolute;bottom:20px;left:20px;right:20px">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;font-style:italic;color:rgba(255,255,255,.92);line-height:1.4;margin-bottom:5px">"Finally, I can see everything."</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.06em">Morning clarity · Every business</div>
+          </div>
+        </div>
+
+        <!-- Portrait 2: Two people collaborating -->
+        <div style="border-radius:12px;overflow:hidden;min-height:300px;position:relative">
+          <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80&fit=crop&crop=top" alt="Team reviewing business data" style="width:100%;height:300px;object-fit:cover;object-position:top;display:block;filter:brightness(.94)"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(20,28,32,.65) 100%)"></div>
+          <div style="position:absolute;bottom:20px;left:20px;right:20px">
+            <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.88);line-height:1.55;margin-bottom:8px">Every metric. Every business. One view your whole team sees.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <div style="background:rgba(74,138,112,.7);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:500;color:#EBF3EF">↑ 12% revenue</div>
+              <div style="background:rgba(74,138,112,.7);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:500;color:#EBF3EF">5 of 6 on track</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portrait 3: Confident operator, phone -->
+        <div style="border-radius:12px;overflow:hidden;min-height:300px;position:relative">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=top" alt="Business operator with phone" style="width:100%;height:300px;object-fit:cover;object-position:top;display:block;filter:brightness(.93)"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(20,28,32,.7) 100%)"></div>
+          <div style="position:absolute;bottom:20px;left:20px;right:20px">
+            <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.88);line-height:1.55;margin-bottom:5px">No engineers. No consultants. Up and running today.</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.05em">Any business · Any size · Day one</div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════
+     PAGE: ABOVE HUB
+════════════════════════════════ -->
+<div class="page" id="page-hub">
+  <div class="page-header">
+    <div class="ey">Opal Hub</div>
+    <h1>One screen.<br><em>Every business.</em></h1>
+    <p>Your full portfolio, visible at a glance. Switch between businesses instantly or see them all together — the overview every operator has always needed but never had.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn-hero-p">Start for free</a>
+      <a href="#" class="btn-hero-g">Book a demo</a>
+    </div>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="two-col reveal">
+        <div>
+          <div class="ey">Portfolio view</div>
+          <h2 class="s-h2">Every business,<br><em>in one glance.</em></h2>
+          <p class="s-sub" style="margin-bottom:20px">Stop switching between tabs, logging into separate tools, and chasing down numbers. Opal Hub gives you a single, live view of every business you run — revenue, operations, and alerts, all in one place.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Real-time data across every connected business</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Business switcher — jump anywhere in one click</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Portfolio roll-up view with consolidated financials</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Custom KPI cards per business type</li>
+          </ul>
+        </div>
+        <div class="two-col-visual">
+          <div style="width:100%;font-family:var(--app-font)">
+            <div style="background:var(--white);border-radius:10px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 24px rgba(20,28,32,.07)">
+              <div style="background:var(--midnight);padding:10px 14px;font-size:11px;color:rgba(255,255,255,.45)">Portfolio — 6 businesses</div>
+              <div style="padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <div style="background:var(--air);border-radius:7px;padding:10px 12px;border:1px solid var(--mist)"><div style="font-size:10px;color:var(--text-muted);margin-bottom:3px">Van Fleet Co</div><div style="font-size:16px;font-weight:600;color:var(--midnight)">$12.4k</div><div style="font-size:10px;color:var(--sage)">↑ 23% this week</div></div>
+                <div style="background:var(--air);border-radius:7px;padding:10px 12px;border:1px solid var(--mist)"><div style="font-size:10px;color:var(--text-muted);margin-bottom:3px">Studio North</div><div style="font-size:16px;font-weight:600;color:var(--midnight)">$8.1k</div><div style="font-size:10px;color:var(--sage)">↑ 12% this week</div></div>
+                <div style="background:var(--amber-light,#FEF3E8);border-radius:7px;padding:10px 12px;border:1px solid rgba(196,137,74,.25)"><div style="font-size:10px;color:var(--text-muted);margin-bottom:3px">Riviera Cafe</div><div style="font-size:16px;font-weight:600;color:var(--midnight)">$6.2k</div><div style="font-size:10px;color:var(--amber)">Needs attention</div></div>
+                <div style="background:var(--air);border-radius:7px;padding:10px 12px;border:1px solid var(--mist)"><div style="font-size:10px;color:var(--text-muted);margin-bottom:3px">3 more businesses</div><div style="font-size:14px;font-weight:500;color:var(--sage);margin-top:6px">All clear ✓</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">Your entire portfolio,<br><em>finally in view.</em></h2><p class="cta-sub">Start with one business. Scale to ten. Opal Hub grows with you.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Start for free</a></div><p class="cta-note">14-day free trial. No credit card.</p></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: DAILY PULSE
+════════════════════════════════ -->
+<div class="page" id="page-pulse">
+  <div class="page-header">
+    <div class="ey">Daily Pulse</div>
+    <h1>Your morning.<br><em>Already done.</em></h1>
+    <p>Every morning, Opal delivers an AI-powered briefing across every business you run. What moved, what needs attention, what to do next — waiting before you've had coffee.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn-hero-p">Start for free</a>
+      <a href="#" class="btn-hero-g">See a sample briefing</a>
+    </div>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="two-col reveal">
+        <div>
+          <div class="ey">How it works</div>
+          <h2 class="s-h2">Opal works while<br>you <em>sleep.</em></h2>
+          <p class="s-sub" style="margin-bottom:20px">Every night, Opal scans every connected tool, every business metric, and every trend across your portfolio. By morning, it's synthesized everything into a single clear briefing — no noise, no guesswork.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>AI-generated insights, not just data dumps</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Anomalies and trends surfaced automatically</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Next best action recommendations for each business</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Customizable to your KPIs and thresholds</li>
+          </ul>
+        </div>
+        <div class="two-col-visual" style="padding:20px">
+          <div style="width:100%;background:var(--midnight);border-radius:10px;padding:18px 20px;font-family:var(--app-font)">
+            <div style="font-size:10px;font-weight:600;color:var(--mist);letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px">Saturday, March 28 · Daily Pulse</div>
+            <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px"><div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">Van Fleet Co — 8 bookings this week, up 23%. Revenue on track at $12,400.</div></div>
+            <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px"><div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">Studio North — 4 new leads from yesterday's campaign. Pipeline healthy.</div></div>
+            <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px"><div style="width:5px;height:5px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">Riviera Cafe — Margin at 18.4%, below your 22% target. Food cost creeping for 3 weeks. Suggested action: review supplier pricing today.</div></div>
+            <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">3 other businesses clear this morning. Your Crew checked in overnight.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">Your clearest morning<br><em>starts today.</em></h2><p class="cta-sub">Connect your tools and receive your first Daily Pulse within minutes.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Start for free</a></div><p class="cta-note">14-day free trial. No credit card.</p></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: ABOVE CREW
+════════════════════════════════ -->
+<div class="page" id="page-crew">
+  <div class="page-header" style="background:linear-gradient(168deg,var(--midnight) 0%,#1A2E26 100%)">
+    <div class="ey" style="color:var(--mist)">Opal Crew — Coming Soon</div>
+    <h1 style="color:rgba(255,255,255,.9)">Your AI team.<br><em style="color:var(--mist)">Always on.</em></h1>
+    <p style="color:rgba(255,255,255,.5)">Four specialized AI agents working Finance, Operations, Growth, and Client Success across every business — simultaneously, around the clock. They work below so you stay above.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn-hero-p">Join the waitlist</a>
+    </div>
+  </div>
+  <section class="s-dark">
+    <div class="s-in">
+      <div class="ey">The Crew</div>
+      <h2 class="s-h2">Four agents.<br><em>Every function covered.</em></h2>
+      <p class="s-sub">Each Opal Crew agent is specialized for one domain — and they work together to give you the complete picture every morning.</p>
+      <div class="crew-grid">
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
+          <h4>Finance Crew</h4><p>Monitors P&L, flags cash flow risks, tracks expense anomalies, and keeps your books reconciled — every business, every morning.</p>
+        </div>
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+          <h4>Operations Crew</h4><p>Tracks open tasks, flags overdue commitments, monitors vendor SLAs, and surfaces operational blockers before they become problems.</p>
+        </div>
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <h4>Growth Crew</h4><p>Monitors pipeline health, tracks lead velocity, flags revenue gaps, and identifies the highest-leverage growth opportunities across your portfolio.</p>
+        </div>
+        <div class="crew-c">
+          <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 11l1.5 1.5L21 9"/></svg></div>
+          <h4>Client Success Crew</h4><p>Watches churn signals, tracks renewal timelines, flags disengaged accounts, and makes sure no client relationship goes quiet without you knowing.</p>
+        </div>
+      </div>
+      <a href="#" class="crew-cta">Join the waitlist — be first to access Opal Crew →</a>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">A full team.<br><em>Without the overhead.</em></h2><p class="cta-sub">Opal Crew is coming. Join the waitlist and be among the first operators to run with a full AI team.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Join the waitlist</a></div></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: ABOVE CONNECT
+════════════════════════════════ -->
+<div class="page" id="page-connect">
+  <div class="page-header">
+    <div class="ey">Opal Connect</div>
+    <h1>All your tools.<br><em>One clear picture.</em></h1>
+    <p>Opal Connect pulls data from every tool you already use — accounting, CRM, scheduling, payments — and feeds it into a single live view. No migrations. No ripping anything out.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn-hero-p">Start connecting</a>
+      <a href="#" class="btn-hero-g" onclick="event.preventDefault();goTo('integrations')">View all integrations</a>
+    </div>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="ey">Integrations</div>
+      <h2 class="s-h2">Works with everything<br>you already <em>rely on.</em></h2>
+      <p class="s-sub">Connect in seconds. Opal uses OAuth and API connections — no manual exports, no CSV uploads, no data entry.</p>
+      <div class="int-grid reveal" style="margin-top:40px">
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2CA01C"/><path d="M18 8C12.5 8 8 12.5 8 18s4.5 10 10 10c1.8 0 3.4-.5 4.8-1.3l-2.4-2.9c-.7.3-1.6.5-2.4.5-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6v1.2h2.4c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2H24v2.4h2.4c2 0 3.6-1.6 3.6-3.6V18c0-5.5-4.5-10-10-10z" fill="white"/></svg></div><div class="int-nm">QuickBooks</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="56" height="36" viewBox="0 0 56 24" fill="none"><rect width="56" height="24" rx="5" fill="#635BFF"/><path d="M25.5 8c0-1 .8-1.3 2-1.3 1.9 0 4.2.6 6 1.5V4.5C31.8 3.7 30 3.3 27.5 3.3 23.2 3.3 20 5.4 20 8.7c0 5 6.8 4.2 6.8 6.3 0 1.1-1 1.5-2.3 1.5-2 0-4.7-.8-6.7-2v4c2.2 1 4.5 1.4 6.7 1.4 4.4 0 7.3-2 7.3-5.3.1-5.4-6.3-4.5-6.3-6.6z" fill="white"/></svg></div><div class="int-nm">Stripe</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="11" r="3.5" fill="#FF7A59"/><circle cx="18" cy="25" r="3.5" fill="#FF7A59"/><circle cx="8" cy="18" r="3.5" fill="#FF7A59"/><circle cx="28" cy="18" r="3.5" fill="#FF7A59"/><circle cx="18" cy="18" r="5" fill="#FF7A59"/></svg></div><div class="int-nm">HubSpot</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00D7AB"/><path d="M6 19 Q10.5 10 15 19 Q19.5 28 24 19 Q28.5 10 33 19" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Wave</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 15h9c.1.6.1 1 .1 1.5C27 21.5 23.5 25 18.1 25 13 25 9 21 9 16s4-9 9-9c2.5 0 4.5.9 6 2.4l-2.3 2.2C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6s2.7 6 6 6c3 0 5-1.7 5.4-4H18v-3z" fill="#4285F4"/><path d="M9 16c0-5 4-9 9-9 2.5 0 4.5.9 6 2.4L21.7 11.6C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6H9z" fill="#EA4335"/><path d="M18 22c2.8 0 5.3-1.1 7-3l-2.6-2C21.4 18.3 19.8 19 18 19c-2.8 0-5.2-1.9-6-4.5L9.2 16C10.6 19.5 14 22 18 22z" fill="#34A853"/><path d="M12 14.4C11.8 13.8 11.8 13.4 11.8 13c0-.4.1-.8.2-1.4L9.2 10C8.5 11 8 13 8 13s.2 2.1.8 3.3L12 14.4z" fill="#FBBC05"/></svg></div><div class="int-nm">Google Workspace</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#006BFF"/><rect x="9" y="11" width="18" height="16" rx="2.5" fill="white"/><rect x="13" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="20" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="13" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/><rect x="18.5" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/></svg></div><div class="int-nm">Calendly</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1F8EFA"/><rect x="9" y="11" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="16" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="21" width="11" height="2.5" rx="1.2" fill="white"/></svg></div><div class="int-nm">Intercom</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2E7D32"/><polygon points="18,8 28,26 8,26" fill="white"/><polygon points="18,14 26,26 10,26" fill="#2E7D32"/><rect x="16" y="26" width="4" height="4" rx=".5" fill="white"/></svg></div><div class="int-nm">Outdoorsy</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00A3E0"/><circle cx="18" cy="15" r="6" fill="white"/><circle cx="18" cy="15" r="3" fill="#00A3E0"/><path d="M12 26 Q18 22 24 26" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Bouncie</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1C6EBF"/><circle cx="18" cy="17" r="4" fill="white"/><circle cx="18" cy="17" r="1.8" fill="#1C6EBF"/></svg></div><div class="int-nm">RVezy</div></div>
+        <div class="int-more"><span>+ many more connected via Make.com</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">All your tools.<br><em>Finally speaking together.</em></h2><p class="cta-sub">Connect your first tool in under 60 seconds.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Start connecting</a></div><p class="cta-note">14-day free trial. No credit card.</p></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: ABOVE CANVAS
+════════════════════════════════ -->
+<div class="page" id="page-canvas">
+  <div class="page-header">
+    <div class="ey">Opal Canvas</div>
+    <h1>Your brand in front.<br><em>Opal behind it.</em></h1>
+    <p>White-label the entire Opal platform for your clients, franchisees, or portfolio companies. Your domain, your logo, your name. Opal runs quietly and invisibly underneath.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="#" class="btn-hero-p">Talk to us</a>
+      <a href="#" class="btn-hero-g" onclick="event.preventDefault();goTo('pricing')">See Enterprise pricing</a>
+    </div>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="two-col reveal">
+        <div>
+          <div class="ey">White-label</div>
+          <h2 class="s-h2">Your platform.<br><em>Zero code required.</em></h2>
+          <p class="s-sub" style="margin-bottom:20px">Upload your logo, set your brand colors, configure your domain, and give it a name your clients will trust. The entire Opal platform becomes yours — no engineering, no development timeline.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Custom domain (e.g. platform.yourbrand.com)</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Your logo, colors, and product name</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Multi-tenant client management</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Opal never appears — not in the UI, not in emails</li>
+            <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Ideal for agencies, franchisors, and holding companies</li>
+          </ul>
+        </div>
+        <div class="two-col-visual">
+          <div style="width:100%;text-align:center">
+            <div style="background:var(--midnight);border-radius:10px;padding:14px 18px;margin-bottom:12px;display:inline-flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:6px;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:white">Y</div><span style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.85)">YOUR BRAND</span></div>
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.6">Your clients see your brand.<br>Powered by Opal — invisibly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">Your clients.<br><em>Your platform.</em></h2><p class="cta-sub">Opal Canvas is available on the Enterprise plan. Talk to us about getting set up.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Talk to us</a></div></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: INTEGRATIONS
+════════════════════════════════ -->
+<div class="page" id="page-integrations">
+  <div class="page-header">
+    <div class="ey">Opal Connect</div>
+    <h1>Works with everything<br>you already <em>rely on.</em></h1>
+    <p>No migrations. No ripping anything out. Opal connects to what you're already running and pulls it all into one clear picture.</p>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="int-grid reveal">
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2CA01C"/><path d="M18 8C12.5 8 8 12.5 8 18s4.5 10 10 10c1.8 0 3.4-.5 4.8-1.3l-2.4-2.9c-.7.3-1.6.5-2.4.5-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6v1.2h2.4c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2H24v2.4h2.4c2 0 3.6-1.6 3.6-3.6V18c0-5.5-4.5-10-10-10z" fill="white"/></svg></div><div class="int-nm">QuickBooks</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="56" height="36" viewBox="0 0 56 24" fill="none"><rect width="56" height="24" rx="5" fill="#635BFF"/><path d="M25.5 8c0-1 .8-1.3 2-1.3 1.9 0 4.2.6 6 1.5V4.5C31.8 3.7 30 3.3 27.5 3.3 23.2 3.3 20 5.4 20 8.7c0 5 6.8 4.2 6.8 6.3 0 1.1-1 1.5-2.3 1.5-2 0-4.7-.8-6.7-2v4c2.2 1 4.5 1.4 6.7 1.4 4.4 0 7.3-2 7.3-5.3.1-5.4-6.3-4.5-6.3-6.6z" fill="white"/></svg></div><div class="int-nm">Stripe</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="11" r="3.5" fill="#FF7A59"/><circle cx="18" cy="25" r="3.5" fill="#FF7A59"/><circle cx="8" cy="18" r="3.5" fill="#FF7A59"/><circle cx="28" cy="18" r="3.5" fill="#FF7A59"/><circle cx="18" cy="18" r="5" fill="#FF7A59"/></svg></div><div class="int-nm">HubSpot</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00D7AB"/><path d="M6 19 Q10.5 10 15 19 Q19.5 28 24 19 Q28.5 10 33 19" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Wave</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 15h9c.1.6.1 1 .1 1.5C27 21.5 23.5 25 18.1 25 13 25 9 21 9 16s4-9 9-9c2.5 0 4.5.9 6 2.4l-2.3 2.2C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6s2.7 6 6 6c3 0 5-1.7 5.4-4H18v-3z" fill="#4285F4"/><path d="M9 16c0-5 4-9 9-9 2.5 0 4.5.9 6 2.4L21.7 11.6C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6H9z" fill="#EA4335"/><path d="M18 22c2.8 0 5.3-1.1 7-3l-2.6-2C21.4 18.3 19.8 19 18 19c-2.8 0-5.2-1.9-6-4.5L9.2 16C10.6 19.5 14 22 18 22z" fill="#34A853"/><path d="M12 14.4C11.8 13.8 11.8 13.4 11.8 13c0-.4.1-.8.2-1.4L9.2 10C8.5 11 8 13 8 13s.2 2.1.8 3.3L12 14.4z" fill="#FBBC05"/></svg></div><div class="int-nm">Google Workspace</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#006BFF"/><rect x="9" y="11" width="18" height="16" rx="2.5" fill="white"/><rect x="13" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="20" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="13" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/><rect x="18.5" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/></svg></div><div class="int-nm">Calendly</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1F8EFA"/><rect x="9" y="11" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="16" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="21" width="11" height="2.5" rx="1.2" fill="white"/></svg></div><div class="int-nm">Intercom</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2E7D32"/><polygon points="18,8 28,26 8,26" fill="white"/><polygon points="18,14 26,26 10,26" fill="#2E7D32"/><rect x="16" y="26" width="4" height="4" rx=".5" fill="white"/></svg></div><div class="int-nm">Outdoorsy</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00A3E0"/><circle cx="18" cy="15" r="6" fill="white"/><circle cx="18" cy="15" r="3" fill="#00A3E0"/><path d="M12 26 Q18 22 24 26" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Bouncie</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1C6EBF"/><circle cx="18" cy="17" r="4" fill="white"/><circle cx="18" cy="17" r="1.8" fill="#1C6EBF"/></svg></div><div class="int-nm">RVezy</div></div>
+        <div class="int-more"><span>+ many more connected via Make.com</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">Your tools.<br><em>Finally one picture.</em></h2><p class="cta-sub">Connect your first integration in under 60 seconds.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Start connecting</a></div><p class="cta-note">14-day free trial. No credit card.</p></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: PRICING
+════════════════════════════════ -->
+<div class="page" id="page-pricing">
+  <div class="page-header">
+    <div class="ey">Pricing</div>
+    <h1>Priced by business,<br>not by <em>seat.</em></h1>
+    <p>You shouldn't pay more because your team grows. Opal scales with the number of businesses you run — nothing else.</p>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="pr-grid reveal">
+        <div class="pr-c">
+          <div class="pr-tier">Operator</div>
+          <div class="pr-amt">$79</div>
+          <div class="pr-per">/ month · up to 3 businesses</div>
+          <div class="pr-desc">Everything you need to get clear on your first businesses.</div>
+          <ul class="pr-feats">
+            <li>Up to 3 business entities</li>
+            <li>Daily Pulse briefing</li>
+            <li>10 integrations</li>
+            <li>AI insights on every metric</li>
+            <li>Unlimited team members</li>
+            <li>Role-based access</li>
+          </ul>
+          <a href="#" class="btn-pr">Get started</a>
+        </div>
+        <div class="pr-c feat">
+          <div class="pr-tier">Studio</div>
+          <div class="pr-amt">$249</div>
+          <div class="pr-per">/ month · up to 10 businesses</div>
+          <div class="pr-desc">For operators managing a growing portfolio who need the full view.</div>
+          <ul class="pr-feats">
+            <li>Up to 10 business entities</li>
+            <li>Everything in Operator</li>
+            <li>Unlimited integrations</li>
+            <li>Portfolio roll-up view</li>
+            <li>White-label (Opal Canvas)</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="btn-pr">Get started</a>
+        </div>
+        <div class="pr-c">
+          <div class="pr-tier">Enterprise</div>
+          <div class="pr-amt" style="font-size:34px;padding-top:8px">Custom</div>
+          <div class="pr-per">for franchises, agencies & portfolios</div>
+          <div class="pr-desc">For organizations managing dozens of entities or licensing Opal to clients.</div>
+          <ul class="pr-feats">
+            <li>Unlimited business entities</li>
+            <li>Full white-label + custom domain</li>
+            <li>Opal Crew early access</li>
+            <li>Dedicated success manager</li>
+            <li>Custom integrations & SLA</li>
+          </ul>
+          <a href="#" class="btn-pr">Talk to us</a>
+        </div>
+      </div>
+      <div style="margin-top:52px;background:var(--air);border:1px solid var(--mist);border-radius:14px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:15px;font-weight:500;color:var(--midnight);margin-bottom:5px">Opal Crew add-on</div>
+          <div style="font-size:13px;font-weight:300;color:var(--text-secondary)">Add AI agents to any plan. Finance, Operations, Growth, and Client Success — running 24/7 across every business.</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--midnight)">$49</div>
+          <div style="font-size:12px;color:var(--text-muted)">per business / month</div>
+          <a href="#" class="crew-cta" style="margin-top:12px;display:inline-flex">Join waitlist →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="s-chalk">
+    <div class="s-in">
+      <div class="ey" style="text-align:center">Common questions</div>
+      <h2 class="s-h2" style="text-align:center;max-width:400px;margin:0 auto 40px">Everything you need<br>to <em>decide.</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:820px;margin:0 auto">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 24px"><div style="font-size:14px;font-weight:500;color:var(--midnight);margin-bottom:8px">Can I switch plans?</div><div style="font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.6">Yes, anytime. Upgrade or downgrade as your business changes. Billing adjusts immediately.</div></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 24px"><div style="font-size:14px;font-weight:500;color:var(--midnight);margin-bottom:8px">What counts as a business entity?</div><div style="font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.6">Any separate operation with its own data, team, or financials — a restaurant, a van fleet, a consulting practice.</div></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 24px"><div style="font-size:14px;font-weight:500;color:var(--midnight);margin-bottom:8px">Is there a free trial?</div><div style="font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.6">Yes — 14 days free on any plan. No credit card required to start.</div></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 24px"><div style="font-size:14px;font-weight:500;color:var(--midnight);margin-bottom:8px">What about white-labeling?</div><div style="font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.6">Opal Canvas is included in Studio and Enterprise. For custom domain setup, talk to our team.</div></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-block"><h2 class="cta-h2">Start free.<br><em>Scale as you grow.</em></h2><p class="cta-sub">14-day trial, no credit card. Cancel anytime.</p><div style="display:flex;gap:12px;justify-content:center"><a href="#" class="btn-hero-p">Start for free</a><a href="#" class="btn-hero-g">Talk to sales</a></div></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     PAGE: ABOUT
+════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-header">
+    <div class="ey">About Opal</div>
+    <h1>Built for operators.<br><em>By operators.</em></h1>
+    <p>Opal was built because the tools already exist — they just don't talk to each other. We built the AI-powered layer that connects them, makes sense of them, and delivers clarity every morning.</p>
+  </div>
+  <section class="s-white">
+    <div class="s-in">
+      <div class="about-grid reveal">
+        <div>
+          <div class="ey">Our story</div>
+          <h2 class="s-h2">The problem we<br>refused to <em>accept.</em></h2>
+          <p class="s-sub" style="margin-bottom:20px">Every operator we knew was doing the same thing every morning: logging into five different tools, pulling data into a spreadsheet, trying to piece together a picture of what was happening across their businesses.</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.75;">It was slow, it was manual, and it was the worst possible use of an operator's most valuable time. The tools were there. The data was there. What was missing was the single clear view that made sense of all of it.</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.75;margin-top:16px">Opal is that view. Built once, for every business type, at every scale.</p>
+        </div>
+        <div>
+          <div class="about-photo reveal-right" style="border-radius:14px;overflow:hidden;min-height:400px;position:relative;box-shadow:0 16px 40px rgba(20,28,32,.15)">
+            <img src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=800&q=80&fit=crop&crop=top" alt="Operator reviewing business dashboard" style="width:100%;height:400px;object-fit:cover;object-position:top;display:block;filter:brightness(.9)"/>
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(20,28,32,.75) 100%)"></div>
+            <div style="position:absolute;bottom:32px;left:32px;right:32px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:rgba(255,255,255,.88);line-height:1.4">Built because every operator<br>deserves this view.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats strip below the two-col -->
+      <div class="reveal" style="margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+
+            <div style="background:var(--air);border:1px solid var(--mist);border-radius:12px;padding:20px 18px">
+              <div style="margin-bottom:12px">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                  <rect width="36" height="36" rx="9" fill="rgba(74,138,112,.1)"/>
+                  <polygon points="18,5 26,10 26,21 18,26 10,21 10,10" fill="none" stroke="#4A8A70" stroke-width="1.2"/>
+                  <polygon points="18,5 26,10 18,13 10,10" fill="rgba(74,138,112,.4)"/>
+                  <polygon points="10,10 18,13 18,19 10,15" fill="rgba(197,222,218,.4)"/>
+                  <polygon points="26,10 18,13 18,19 26,15" fill="rgba(74,138,112,.25)"/>
+                  <line x1="18" y1="5" x2="18" y2="26" stroke="rgba(74,138,112,.4)" stroke-width=".7"/>
+                  <circle cx="13" cy="9" r=".9" fill="#4A8A70" opacity=".8"/>
+                </svg>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:var(--midnight);margin-bottom:5px">All businesses supported</div>
+              <div style="font-size:11px;font-weight:300;color:var(--text-secondary);line-height:1.55">It's not about the business — it's about your insights. If you run it, Opal illuminates it.</div>
+            </div>
+
+            <div style="background:var(--air);border:1px solid var(--mist);border-radius:12px;padding:20px 18px">
+              <div style="margin-bottom:12px">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                  <rect width="36" height="36" rx="9" fill="rgba(74,138,112,.1)"/>
+                  <circle cx="14" cy="18" r="7" fill="none" stroke="#4A8A70" stroke-width="1.4"/>
+                  <circle cx="22" cy="18" r="7" fill="none" stroke="#C5DEDA" stroke-width="1.4"/>
+                  <circle cx="14" cy="18" r="2" fill="#4A8A70" opacity=".7"/>
+                  <circle cx="22" cy="18" r="2" fill="#C5DEDA" opacity=".7"/>
+                </svg>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:var(--midnight);margin-bottom:5px">Native integrations</div>
+              <div style="font-size:11px;font-weight:300;color:var(--text-secondary);line-height:1.55">Live at launch with dozens more on the roadmap — no middleware required.</div>
+            </div>
+
+            <div style="background:var(--air);border:1px solid var(--mist);border-radius:12px;padding:20px 18px">
+              <div style="margin-bottom:12px">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                  <rect width="36" height="36" rx="9" fill="rgba(74,138,112,.1)"/>
+                  <path d="M8 22 Q18 10 28 22" fill="none" stroke="#4A8A70" stroke-width="1.4" stroke-linecap="round"/>
+                  <circle cx="18" cy="18" r="4" fill="#4A8A70" opacity=".7"/>
+                  <line x1="18" y1="9" x2="18" y2="7" stroke="#4A8A70" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+                  <line x1="24" y1="11" x2="25.4" y2="9.6" stroke="#4A8A70" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+                  <line x1="12" y1="11" x2="10.6" y2="9.6" stroke="#4A8A70" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+                </svg>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:var(--midnight);margin-bottom:5px">One morning view</div>
+              <div style="font-size:11px;font-weight:300;color:var(--text-secondary);line-height:1.55">Everything you need across every business — before your first coffee.</div>
+            </div>
+
+            <div style="background:var(--air);border:1px solid var(--mist);border-radius:12px;padding:20px 18px">
+              <div style="margin-bottom:12px">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                  <rect width="36" height="36" rx="9" fill="rgba(74,138,112,.1)"/>
+                  <rect x="9" y="12" width="18" height="13" rx="2" fill="none" stroke="#4A8A70" stroke-width="1.3"/>
+                  <line x1="12" y1="17" x2="24" y2="17" stroke="#4A8A70" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+                  <line x1="12" y1="20" x2="20" y2="20" stroke="#4A8A70" stroke-width="1" stroke-linecap="round" opacity=".4"/>
+                  <path d="M21 23 L21 29 L23.5 26.5 L26 29.5" stroke="#4A8A70" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:var(--midnight);margin-bottom:5px">Zero engineers needed</div>
+              <div style="font-size:11px;font-weight:300;color:var(--text-secondary);line-height:1.55">Setup is clicks, not code. Any operator can be live in minutes.</div>
+            </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════
+     FOOTER (shared)
+════════════════════════════════ -->
+<footer>
+  <div class="ft-in">
+    <div>
+      <div class="ft-brand">
+        <svg width="24" height="24" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M36 9 C21 21 13 31 13 40 C13 53 23 63 36 63 C49 63 59 53 59 40 C59 31 51 21 36 9Z" fill="rgba(197,222,218,.08)" stroke="rgba(197,222,218,.4)" stroke-width="1.1"/>
+          <path d="M36 19 C26 28 21 36 21 42 C21 51 28 58 36 58 C44 58 51 51 51 42 C51 36 46 28 36 19Z" fill="rgba(197,222,218,.06)" stroke="rgba(197,222,218,.28)" stroke-width=".95"/>
+          <path d="M36 29 C30 36 27 40 27 44 C27 49 31 53 36 53 C41 53 45 49 45 44 C45 40 42 36 36 29Z" fill="rgba(74,138,112,.4)" stroke="rgba(74,138,112,.65)" stroke-width=".85"/>
+          <ellipse cx="36" cy="45" rx="4.5" ry="5" fill="rgba(196,137,74,.38)"/>
+        </svg>
+        <span class="ft-brand-txt">OPAL</span>
+      </div>
+      <div class="ft-tag">Every facet of your business, finally clear.</div>
+    </div>
+    <div class="ft-col">
+      <h5>Product</h5>
+      <ul>
+        <li><a onclick="goTo('hub')">Opal Hub</a></li>
+        <li><a onclick="goTo('pulse')">Daily Pulse</a></li>
+        <li><a onclick="goTo('crew')">Opal Crew</a></li>
+        <li><a onclick="goTo('connect')">Opal Connect</a></li>
+        <li><a onclick="goTo('canvas')">Opal Canvas</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a onclick="goTo('about')">About</a></li>
+        <li><a onclick="goTo('pricing')">Pricing</a></li>
+        <li><a onclick="goTo('integrations')">Integrations</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 Opal. All rights reserved.</span>
+    <span>Made for operators everywhere.</span>
+  </div>
+</footer>
+
+<script>
+function goTo(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo(0, 0);
+    document.title = 'Opal' + (page !== 'home' ? ' — ' + page.charAt(0).toUpperCase() + page.slice(1) : ' — AI-Powered Business Management Software');
+  }
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const map = {hub:'Product',pulse:'Product',crew:'Product',connect:'Product',canvas:'Product',integrations:'Integrations',pricing:'Pricing',about:'About'};
+  if (map[page]) {
+    document.querySelectorAll('.nav-btn').forEach(b => { if(b.textContent.trim().startsWith(map[page])) b.classList.add('active'); });
+  }
+  setTimeout(() => { runReveals(target); }, 60);
+}
+
+function runReveals(container) {
+  const sel = '.reveal,.reveal-left,.reveal-right,.reveal-scale';
+  const els = container.querySelectorAll(sel);
+  els.forEach(el => el.classList.remove('visible'));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  els.forEach(el => obs.observe(el));
+}
+
+// Initial reveal for home page
+runReveals(document.getElementById('page-home'));
+</script>
+</body>
+</html>
