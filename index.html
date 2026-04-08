@@ -1149,6 +1149,375 @@ footer{background:var(--midnight);padding:52px}
   </section>
 </div>
 
+<!-- PAGE: TERMS OF SERVICE -->
+<div id="page-tos" class="page">
+<style>
+.legal-page { max-width: 780px; margin: 0 auto; padding: 80px 32px 120px; font-family: 'DM Sans', sans-serif; color: #141C20; }
+.legal-page .legal-eyebrow { font-family: 'IBM Plex Sans', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #4A8A70; margin-bottom: 16px; }
+.legal-page h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 52px); font-weight: 400; color: #141C20; line-height: 1.1; margin-bottom: 12px; }
+.legal-page .legal-meta { font-size: 13px; color: #666; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid #E8E4DC; }
+.legal-page .legal-notice { background: #EBF3EF; border-left: 3px solid #4A8A70; padding: 16px 20px; border-radius: 0 6px 6px 0; margin-bottom: 40px; font-size: 14px; line-height: 1.6; color: #141C20; }
+.legal-page .legal-notice strong { color: #4A8A70; }
+.legal-page h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #141C20; margin: 48px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #E8E4DC; }
+.legal-page h3 { font-size: 15px; font-weight: 600; color: #141C20; margin: 28px 0 8px; }
+.legal-page p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 16px; }
+.legal-page ul, .legal-page ol { padding-left: 22px; margin-bottom: 16px; }
+.legal-page li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 6px; }
+.legal-page .legal-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14px; }
+.legal-page .legal-table th { background: #F7F5F0; padding: 10px 14px; text-align: left; font-weight: 600; border: 1px solid #E8E4DC; color: #141C20; }
+.legal-page .legal-table td { padding: 10px 14px; border: 1px solid #E8E4DC; vertical-align: top; color: #333; line-height: 1.6; }
+.legal-page .legal-highlight { background: #FBF8F3; border: 1px solid #E8E4DC; border-radius: 8px; padding: 20px 24px; margin: 20px 0 28px; }
+.legal-page a { color: #4A8A70; text-decoration: underline; }
+.legal-toc { background: #F7F5F0; border-radius: 10px; padding: 24px 28px; margin-bottom: 48px; }
+.legal-toc p { font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; color: #141C20; }
+.legal-toc ol { margin: 0; padding-left: 20px; }
+.legal-toc li { font-size: 14px; margin-bottom: 4px; }
+.legal-toc a { color: #4A8A70; text-decoration: none; }
+.legal-toc a:hover { text-decoration: underline; }
+@media (max-width: 600px) { .legal-page { padding: 48px 20px 80px; } }
+</style>
+<div class="legal-page">
+  <div class="legal-eyebrow">Legal</div>
+  <h1>Terms of Service</h1>
+  <div class="legal-meta">Effective date: April 7, 2026 &nbsp;·&nbsp; Last updated: April 7, 2026</div>
+
+  <div class="legal-notice">
+    <strong>Attorney review recommended.</strong> These terms reflect Opal's actual product and business model. Before accepting paying customers, we recommend a one-hour review by a startup attorney, particularly the Limitation of Liability, Healthcare Data, and Indemnification sections.<br><br>
+    <strong>Entity notice:</strong> Replace [OPAL ENTITY NAME] throughout with your full Delaware LLC name once formed.
+  </div>
+
+  <div class="legal-toc">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#tos-agreement">Agreement to Terms</a></li>
+      <li><a href="#tos-service">Description of Service</a></li>
+      <li><a href="#tos-accounts">Accounts & Registration</a></li>
+      <li><a href="#tos-billing">Subscriptions & Billing</a></li>
+      <li><a href="#tos-trial">Free Trial</a></li>
+      <li><a href="#tos-ai">AI-Powered Features</a></li>
+      <li><a href="#tos-data">Your Data</a></li>
+      <li><a href="#tos-healthcare">Healthcare Data & HIPAA</a></li>
+      <li><a href="#tos-multitenant">Multi-Tenant Data Isolation</a></li>
+      <li><a href="#tos-integrations">Third-Party Integrations</a></li>
+      <li><a href="#tos-whitelabel">White-Label & Reseller Use</a></li>
+      <li><a href="#tos-acceptable">Acceptable Use</a></li>
+      <li><a href="#tos-ip">Intellectual Property</a></li>
+      <li><a href="#tos-liability">Limitation of Liability</a></li>
+      <li><a href="#tos-indemnification">Indemnification</a></li>
+      <li><a href="#tos-termination">Termination</a></li>
+      <li><a href="#tos-changes">Changes to These Terms</a></li>
+      <li><a href="#tos-governing">Governing Law</a></li>
+      <li><a href="#tos-contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <h2 id="tos-agreement">1. Agreement to Terms</h2>
+  <p>These Terms of Service ("Terms") govern your access to and use of the Opal platform, including any web applications, APIs, integrations, and related services (collectively, the "Service") operated by Opal ("we," "us," or "our").</p>
+  <p>By creating an account, starting a free trial, or using any part of the Service, you agree to be bound by these Terms. If you are using the Service on behalf of an organization, you represent that you have the authority to bind that organization to these Terms, and references to "you" include that organization.</p>
+  <p>If you do not agree to these Terms, do not use the Service.</p>
+
+  <h2 id="tos-service">2. Description of Service</h2>
+  <p>Opal is an AI-powered, multi-tenant business management platform that aggregates data from connected tools and services into a unified dashboard. The Service includes features such as:</p>
+  <ul>
+    <li>AI-generated dashboards, KPI tracking, and business insights ("Opal Hub")</li>
+    <li>Daily AI-generated business briefings ("Daily Pulse")</li>
+    <li>Team and user management ("Opal Crew")</li>
+    <li>Third-party integration connections ("Opal Connect")</li>
+    <li>Business reporting and analytics ("Opal Canvas")</li>
+    <li>White-label and multi-tenant portfolio management</li>
+  </ul>
+  <p>We reserve the right to modify, suspend, or discontinue any feature of the Service at any time with reasonable notice.</p>
+
+  <h2 id="tos-accounts">3. Accounts & Registration</h2>
+  <h3>3.1 Account Creation</h3>
+  <p>You must create an account to use the Service. You agree to provide accurate, current, and complete information during registration and to keep that information updated. You are responsible for all activity that occurs under your account.</p>
+  <h3>3.2 Account Security</h3>
+  <p>You are responsible for maintaining the confidentiality of your login credentials. You agree to notify us immediately at <a href="mailto:info@myopal.io">info@myopal.io</a> if you suspect unauthorized access to your account. We offer multi-factor authentication and strongly encourage you to enable it.</p>
+  <h3>3.3 Business Accounts</h3>
+  <p>The Service supports multiple business entities under a single account. Each business entity operates in an isolated data environment. You are responsible for the accuracy of the business information you provide and for ensuring that users you invite to your workspace comply with these Terms.</p>
+
+  <h2 id="tos-billing">4. Subscriptions & Billing</h2>
+  <h3>4.1 Subscription Plans</h3>
+  <table class="legal-table">
+    <tr><th>Plan</th><th>Price</th><th>Description</th></tr>
+    <tr><td>Operator</td><td>$79/month</td><td>For individual operators and small teams managing one or more businesses</td></tr>
+    <tr><td>Studio</td><td>$249/month</td><td>For agencies, portfolio managers, and multi-location operators</td></tr>
+    <tr><td>Enterprise</td><td>Custom</td><td>White-label, custom integrations, and dedicated support</td></tr>
+  </table>
+  <p>All prices are in USD. Plans and pricing are subject to change with 30 days' notice to active subscribers.</p>
+  <h3>4.2 Billing & Auto-Renewal</h3>
+  <p>Subscriptions are billed monthly or annually in advance. By providing a payment method, you authorize us to charge you automatically at the start of each billing period. Payments are processed by Stripe, Inc. Your payment information is stored and processed by Stripe and is never stored on Opal's servers.</p>
+  <h3>4.3 Refunds</h3>
+  <p>We do not offer refunds for partial billing periods. If you cancel mid-period, you will retain access through the end of your current billing cycle. Exceptions may be made at our sole discretion for service outages or billing errors — contact us at <a href="mailto:info@myopal.io">info@myopal.io</a>.</p>
+  <h3>4.4 Failed Payments</h3>
+  <p>If a payment fails, we will notify you by email immediately and attempt to retry your card on file on days 3, 5, and 7 following the initial failure. You will receive an email notification before each retry attempt and a final notice if the balance remains unresolved after the seventh day.</p>
+  <p>If payment is not successfully collected within 7 days of the original failure date, your account access will be automatically suspended. During suspension:</p>
+  <ul>
+    <li>You will not be able to log in or access any part of the Service</li>
+    <li>Your data will be fully preserved and will not be deleted</li>
+    <li>Connected integrations will stop syncing</li>
+    <li>You may restore access at any time by updating your payment method and clearing the outstanding balance through the billing portal link provided in your suspension email</li>
+  </ul>
+  <p>If the outstanding balance is not resolved within 30 days of the original suspension date, your account will be permanently cancelled and your data will be deleted in accordance with Section 7.3.</p>
+  <p>We reserve the right to suspend accounts immediately — without the 7-day grace period — in cases of suspected fraud or chargebacks.</p>
+  <h3>4.5 Taxes</h3>
+  <p>You are responsible for all applicable taxes. Where required by law, we will collect and remit sales tax or VAT.</p>
+
+  <h2 id="tos-trial">5. Free Trial</h2>
+  <h3>5.1 Trial Terms</h3>
+  <p>We offer a 14-day free trial for new accounts. A valid credit card is required to start your trial. You will not be charged during the trial period. Each person and organization is eligible for one free trial. We reserve the right to modify or discontinue the free trial offer at any time.</p>
+  <h3>5.2 Monthly Billing After Trial</h3>
+  <p>If you selected a monthly billing plan, your credit card will be automatically charged on day 15 at the applicable monthly rate. Your subscription will renew automatically on the same date each month until cancelled.</p>
+  <h3>5.3 Annual Billing After Trial</h3>
+  <p>If you selected an annual billing plan, your credit card will be charged for the full year's subscription on day 15 of your trial. Annual subscriptions renew automatically on your anniversary date each year at the then-current annual rate. You will receive a renewal reminder email at least 14 days before your annual renewal date.</p>
+  <h3>5.4 Cancellation After Annual Billing</h3>
+  <p>If you cancel an annual subscription after day 15 but before your next renewal date, your access to the Service will continue until the end of your current annual subscription period. No partial refunds are issued for unused months of an annual plan.</p>
+  <h3>5.5 Cancelling During Trial</h3>
+  <p>You may cancel at any time before day 15 to avoid being charged. To cancel, visit Account Settings → Billing → Cancel Subscription, or contact us at <a href="mailto:info@myopal.io">info@myopal.io</a> before the trial ends. Cancellations requested by email must be received before midnight Pacific Time on day 14.</p>
+
+  <h2 id="tos-ai">6. AI-Powered Features</h2>
+  <h3>6.1 How AI Is Used</h3>
+  <p>The Service uses artificial intelligence to generate dashboard configurations, business insights, Daily Pulse briefings, and integration recommendations. AI features are powered by third-party models, including Anthropic's Claude API. By using AI features, you acknowledge that:</p>
+  <ul>
+    <li>AI-generated content is provided for informational purposes only and does not constitute financial, legal, medical, or professional advice.</li>
+    <li>AI outputs may contain errors, omissions, or inaccuracies. You are responsible for verifying any AI-generated insights before acting on them.</li>
+    <li>Your business data may be transmitted to Anthropic's API to generate AI responses, subject to Anthropic's data processing terms.</li>
+  </ul>
+  <h3>6.2 AI Data Processing</h3>
+  <p>We do not use your business data to train AI models. Data sent to Anthropic's API is subject to Anthropic's usage policies. We recommend reviewing <a href="https://www.anthropic.com/legal/privacy" target="_blank">Anthropic's Privacy Policy</a> for details on how they handle API data.</p>
+  <h3>6.3 No Professional Advice</h3>
+  <p>Nothing generated by Opal's AI features constitutes financial advice, investment advice, tax advice, legal advice, or any other form of professional advice. Always consult a qualified professional before making business decisions based on AI-generated content.</p>
+
+  <h2 id="tos-data">7. Your Data</h2>
+  <h3>7.1 Ownership</h3>
+  <p>You retain all rights, title, and interest in and to the data you submit to the Service ("Customer Data"). We do not claim ownership of your Customer Data.</p>
+  <h3>7.2 License to Operate the Service</h3>
+  <p>By using the Service, you grant us a limited, non-exclusive, worldwide license to access, store, process, and transmit your Customer Data solely to the extent necessary to operate and provide the Service to you.</p>
+  <h3 id="tos-cancellation">7.3 Cancellation & Data Deletion</h3>
+  <p><strong>How to cancel:</strong> You may cancel your subscription at any time by visiting Account Settings → Billing → Cancel Subscription, or by emailing <a href="mailto:info@myopal.io">info@myopal.io</a>. You will receive a confirmation email when your cancellation is processed.</p>
+  <p><strong>Access after cancellation:</strong> Your access to the Service will remain active through the end of your current paid billing period. You will not be charged again after cancellation.</p>
+  <p><strong>Important — Opal is not a system of record:</strong> Opal aggregates and analyzes data ingested from third-party sources you connect. We do not serve as your primary data source. Your underlying data lives in the tools you already own. We strongly recommend ensuring your source systems are up to date before cancelling.</p>
+  <p><strong>Data deletion:</strong> When your billing period ends, your Opal account and all associated data will be queued for permanent deletion and purged from our systems within 30 days. This deletion is permanent and irreversible. If you return to Opal after deletion, you will need to create a new account and reconnect your integrations.</p>
+  <p><strong>What is deleted:</strong> All data associated with your account including dashboard configurations, AI-generated insights, integration credentials, synced metrics, conversation history, and all team and business records.</p>
+  <p><strong>What is retained:</strong> Billing records and transaction history are retained for 7 years as required by law. Anonymized aggregate usage statistics may be retained indefinitely.</p>
+
+  <h2 id="tos-healthcare">8. Healthcare Data & HIPAA</h2>
+  <div class="legal-highlight">
+    <strong>Important notice for healthcare and wellness operators:</strong> Opal is a general-purpose business management platform. We are not currently a HIPAA-covered entity, nor do we act as a Business Associate under HIPAA by default.
+  </div>
+  <p>If you operate in a healthcare, medical, dental, wellness, or behavioral health context and intend to use the Service to manage, store, or process Protected Health Information (PHI) as defined under HIPAA, you must contact us at <a href="mailto:info@myopal.io">info@myopal.io</a> before doing so. We will work with you to determine whether a Business Associate Agreement (BAA) is appropriate.</p>
+  <p><strong>Do not upload or transmit PHI to the Service without a signed BAA in place.</strong></p>
+
+  <h2 id="tos-multitenant">9. Multi-Tenant Data Isolation</h2>
+  <p>The Service is a multi-tenant platform. We implement row-level security and strict tenant isolation controls to ensure your data is logically separated from data belonging to other customers. No customer can access another customer's data through normal use of the Service.</p>
+
+  <h2 id="tos-integrations">10. Third-Party Integrations</h2>
+  <p>The Service allows you to connect third-party applications and data sources. By connecting an integration, you authorize us to access data from that third-party service on your behalf. You are responsible for ensuring you have the right to connect and share data from any third-party service.</p>
+  <p>We are not responsible for the availability, accuracy, or conduct of any third-party service. Third-party services have their own terms of service and privacy policies, which apply independently of these Terms.</p>
+
+  <h2 id="tos-whitelabel">11. White-Label & Reseller Use</h2>
+  <p>If you are using the Service under an Enterprise or white-label arrangement:</p>
+  <ul>
+    <li>You may rebrand the Service interface with your own logo, colors, and product name for your end clients.</li>
+    <li>You are responsible for ensuring your end clients comply with these Terms.</li>
+    <li>You may not represent the Service as your own proprietary software or remove any legal notices required by us.</li>
+    <li>You remain responsible for all billing, data handling, and compliance obligations associated with your end client accounts.</li>
+  </ul>
+  <p>White-label arrangements require a signed Enterprise agreement. Contact <a href="mailto:info@myopal.io">info@myopal.io</a> to discuss.</p>
+
+  <h2 id="tos-acceptable">12. Acceptable Use</h2>
+  <p>You agree not to use the Service to:</p>
+  <ul>
+    <li>Violate any applicable law, regulation, or third-party rights</li>
+    <li>Upload or transmit malicious code, viruses, or harmful content</li>
+    <li>Attempt to gain unauthorized access to any part of the Service or any other customer's data</li>
+    <li>Reverse engineer, decompile, or attempt to extract the source code of the Service</li>
+    <li>Use the Service to build a competing product</li>
+    <li>Scrape or systematically extract data from the Service without written permission</li>
+    <li>Impersonate any person or organization, or misrepresent your affiliation</li>
+  </ul>
+
+  <h2 id="tos-ip">13. Intellectual Property</h2>
+  <p>The Service, including its design, features, AI systems, code, and branding, is the exclusive property of Opal and its licensors. These Terms do not grant you any rights to our intellectual property except as expressly stated.</p>
+  <p>If you provide feedback or suggestions about the Service, you grant us a perpetual, irrevocable, royalty-free license to use that feedback for any purpose without obligation to you.</p>
+
+  <h2 id="tos-liability">14. Limitation of Liability</h2>
+  <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OPAL AND ITS OFFICERS, EMPLOYEES, AGENTS, AND LICENSORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, OR LOSS OF GOODWILL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+  <p>OUR TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNTS YOU PAID US IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS ($100).</p>
+
+  <h2 id="tos-indemnification">15. Indemnification</h2>
+  <p>You agree to indemnify, defend, and hold harmless Opal and its officers, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) your use of the Service; (b) your Customer Data; (c) your violation of these Terms; or (d) your violation of any third-party rights.</p>
+
+  <h2 id="tos-termination">16. Termination</h2>
+  <h3>16.1 By You</h3>
+  <p>You may cancel your subscription at any time through Account Settings. Cancellation takes effect at the end of your current billing period.</p>
+  <h3>16.2 By Us</h3>
+  <p>We may suspend or terminate your account at any time for violation of these Terms, non-payment, or conduct we determine to be harmful to the Service or other users. We will provide reasonable notice where practicable except in cases of serious violations.</p>
+  <h3>16.3 Effect of Termination</h3>
+  <p>Upon termination, your right to access the Service ceases immediately. Your data will be retained for up to 30 days following your final billing period end date, after which it will be permanently deleted. Sections 7.1, 9, 13, 14, 15, and 18 survive termination.</p>
+
+  <h2 id="tos-changes">17. Changes to These Terms</h2>
+  <p>We may update these Terms from time to time. When we make material changes, we will notify you by email at least 14 days before the changes take effect. Your continued use of the Service after the effective date constitutes acceptance of the updated Terms.</p>
+
+  <h2 id="tos-governing">18. Governing Law</h2>
+  <p>These Terms are governed by the laws of the State of Delaware, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be resolved exclusively in the state or federal courts located in the State of Delaware, and you consent to personal jurisdiction in those courts.</p>
+  <p>Notwithstanding the foregoing, if you are a California resident, you may also have rights under California law that we are required to honor.</p>
+  <p>For disputes under $10,000, either party may elect binding arbitration administered by the American Arbitration Association under its Consumer Arbitration Rules. Class action waivers apply to the fullest extent permitted by law.</p>
+
+  <h2 id="tos-contact">19. Contact</h2>
+  <p><strong>[OPAL ENTITY NAME], a Delaware limited liability company</strong><br>
+  Email: <a href="mailto:info@myopal.io">info@myopal.io</a><br>
+  Website: <a href="https://www.myopal.io">www.myopal.io</a></p>
+</div>
+</div>
+
+<!-- PAGE: PRIVACY POLICY -->
+<div id="page-privacy" class="page">
+<div class="legal-page">
+  <div class="legal-eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <div class="legal-meta">Effective date: April 7, 2026 &nbsp;·&nbsp; Last updated: April 7, 2026</div>
+
+  <div class="legal-notice">
+    <strong>Plain-language summary:</strong> We collect data you give us and data from tools you connect. We use it to run the platform and power AI features. We don't sell your data. We don't train AI models on your data. California residents have additional rights in Section 11.
+  </div>
+
+  <div class="legal-toc">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#pp-who">Who We Are</a></li>
+      <li><a href="#pp-collect">Information We Collect</a></li>
+      <li><a href="#pp-use">How We Use Your Information</a></li>
+      <li><a href="#pp-ai">AI Processing Disclosure</a></li>
+      <li><a href="#pp-sharing">Data Sharing & Third Parties</a></li>
+      <li><a href="#pp-multitenant">Multi-Tenant Data Isolation</a></li>
+      <li><a href="#pp-healthcare">Healthcare Data</a></li>
+      <li><a href="#pp-retention">Data Retention</a></li>
+      <li><a href="#pp-security">Security</a></li>
+      <li><a href="#pp-cookies">Cookies & Tracking</a></li>
+      <li><a href="#pp-rights">Your Rights (CCPA & General)</a></li>
+      <li><a href="#pp-children">Children's Privacy</a></li>
+      <li><a href="#pp-changes">Changes to This Policy</a></li>
+      <li><a href="#pp-contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <h2 id="pp-who">1. Who We Are</h2>
+  <p>Opal ("we," "us," or "our") operates the Opal platform at <a href="https://www.myopal.io">www.myopal.io</a> and <a href="https://app.myopal.io">app.myopal.io</a>. We provide an AI-powered business management platform for operators, agencies, and portfolio managers. This Privacy Policy explains how we collect, use, store, and share information when you use our Service.</p>
+  <p>Questions? Contact us at <a href="mailto:info@myopal.io">info@myopal.io</a> at any time.</p>
+
+  <h2 id="pp-collect">2. Information We Collect</h2>
+  <h3>2.1 Information You Provide Directly</h3>
+  <ul>
+    <li><strong>Account information:</strong> Name, email address, password (hashed, never stored in plaintext), and profile information</li>
+    <li><strong>Business information:</strong> Business names, types, locations, team members, and goals entered during onboarding or setup</li>
+    <li><strong>Payment information:</strong> Billing address and card details — collected and stored by Stripe, Inc. on our behalf. We never see or store your full card number.</li>
+    <li><strong>Communications:</strong> Emails, support requests, and feedback you send to us</li>
+    <li><strong>AI conversations:</strong> Messages you submit to Opal's AI chat features, stored to maintain conversation history</li>
+  </ul>
+  <h3>2.2 Information Collected Automatically</h3>
+  <ul>
+    <li><strong>Usage data:</strong> Pages visited, features used, actions taken, and time spent in the application</li>
+    <li><strong>Device and browser data:</strong> Browser type, operating system, screen resolution, and IP address</li>
+    <li><strong>Login events:</strong> Timestamps and IP addresses associated with account logins</li>
+    <li><strong>Page views:</strong> Navigation events within the application</li>
+  </ul>
+  <h3>2.3 Data from Third-Party Integrations</h3>
+  <p>When you connect third-party services, you authorize us to access and store data from those services. This may include financial data, operational data, booking data, and any other data within the scope of permissions you grant. You control which integrations are connected and can disconnect them at any time.</p>
+
+  <h2 id="pp-use">3. How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Provide, operate, and improve the Service</li>
+    <li>Generate AI-powered dashboards, insights, and Daily Pulse briefings</li>
+    <li>Process payments and manage subscriptions</li>
+    <li>Send transactional emails (verification, billing receipts, password reset)</li>
+    <li>Send product-related communications — you may opt out of non-transactional emails at any time</li>
+    <li>Maintain security and prevent fraud</li>
+    <li>Respond to support requests</li>
+    <li>Comply with legal obligations</li>
+    <li>Analyze anonymized aggregate usage trends to improve the platform</li>
+  </ul>
+  <p>We do not sell your personal data. We do not use your Customer Data for advertising purposes.</p>
+
+  <h2 id="pp-ai">4. AI Processing Disclosure</h2>
+  <p>Opal's AI features are powered by Anthropic's Claude API. When you use features such as AI dashboards, Daily Pulse, AI chat, or integration analysis, relevant data from your account is transmitted to Anthropic's API to generate responses.</p>
+  <ul>
+    <li><strong>What is sent:</strong> Business context, KPIs, integration data, and your AI chat messages — only data required to generate a relevant response</li>
+    <li><strong>What is not sent:</strong> Payment information, passwords, or data from accounts you have not authorized</li>
+    <li><strong>Model training:</strong> We do not use your Customer Data to train AI models</li>
+    <li><strong>Third-party policy:</strong> Data processed by Anthropic is subject to <a href="https://www.anthropic.com/legal/privacy" target="_blank">Anthropic's Privacy Policy</a></li>
+  </ul>
+
+  <h2 id="pp-sharing">5. Data Sharing & Third Parties</h2>
+  <table class="legal-table">
+    <tr><th>Provider</th><th>Purpose</th><th>Data Shared</th></tr>
+    <tr><td>Supabase</td><td>Database and authentication</td><td>All account and application data</td></tr>
+    <tr><td>Stripe, Inc.</td><td>Payment processing</td><td>Billing information, subscription status</td></tr>
+    <tr><td>Anthropic</td><td>AI model API (Claude)</td><td>Business context and AI chat messages</td></tr>
+    <tr><td>Resend</td><td>Transactional email</td><td>Email address, email content</td></tr>
+    <tr><td>Vercel</td><td>Application hosting</td><td>Web traffic and server logs</td></tr>
+    <tr><td>Make.com (optional)</td><td>Integration middleware</td><td>Integration data you configure</td></tr>
+  </table>
+  <p>We do not share your data with third parties for advertising, marketing, or data brokerage. We may share data if required by law, court order, or to protect the rights and safety of Opal or our users.</p>
+
+  <h2 id="pp-multitenant">6. Multi-Tenant Data Isolation</h2>
+  <p>Your data is logically separated from other customers' data at the database level through row-level security policies. Access to your data requires authentication as a user within your organization. Our team has limited, audited access to customer data — only for support, security, and operational purposes.</p>
+
+  <h2 id="pp-healthcare">7. Healthcare Data</h2>
+  <p>Opal is not designed as a HIPAA-compliant system by default and is not intended to store Protected Health Information (PHI). If you operate in a healthcare context, please review Section 8 of our Terms of Service and contact us at <a href="mailto:info@myopal.io">info@myopal.io</a> before connecting systems that may contain PHI.</p>
+
+  <h2 id="pp-retention">8. Data Retention</h2>
+  <ul>
+    <li><strong>Account data:</strong> Retained for the life of your account, then purged within 30 days of your final billing period end date</li>
+    <li><strong>Integration sync data:</strong> Retained for 13 months from last sync date</li>
+    <li><strong>AI conversation history:</strong> Retained for 12 months, then deleted</li>
+    <li><strong>Audit logs:</strong> Retained for 24 months</li>
+    <li><strong>Login event logs:</strong> Retained for 12 months</li>
+    <li><strong>Billing records:</strong> Retained for 7 years as required by law</li>
+  </ul>
+
+  <h2 id="pp-security">9. Security</h2>
+  <p>We implement industry-standard security measures including encryption in transit (TLS/HTTPS), encryption at rest, row-level security at the database level, multi-factor authentication, audit logging of sensitive actions, and access controls limiting internal team access to customer data. If we become aware of a data breach affecting your account, we will notify you as required by applicable law. To report a security concern, contact <a href="mailto:info@myopal.io">info@myopal.io</a> immediately.</p>
+
+  <h2 id="pp-cookies">10. Cookies & Tracking</h2>
+  <p>We use a minimal number of cookies: <strong>Essential cookies</strong> required for authentication and session management (cannot be disabled), and <strong>preference cookies</strong> that store your display settings. We do not use third-party advertising cookies, tracking pixels, or behavioral advertising networks. We do not sell data to data brokers.</p>
+
+  <h2 id="pp-rights">11. Your Rights (CCPA & General)</h2>
+  <h3>11.1 Rights for All Users</h3>
+  <ul>
+    <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
+    <li><strong>Correction:</strong> Request correction of inaccurate data</li>
+    <li><strong>Deletion:</strong> Request deletion of your personal data, subject to legal retention requirements</li>
+    <li><strong>Opt-out of marketing:</strong> Unsubscribe from non-transactional emails at any time</li>
+  </ul>
+  <h3>11.2 California Residents (CCPA / CPRA)</h3>
+  <p>California residents have the right to know what personal information we collect and how it is used, request deletion, request correction, opt out of sale or sharing (we do not sell or share personal information), and be free from discrimination for exercising these rights. To exercise any of these rights, submit a request to <a href="mailto:info@myopal.io">info@myopal.io</a>. We will respond within 45 days as required by law.</p>
+  <h3>11.3 Categories of Personal Information Collected (CCPA)</h3>
+  <table class="legal-table">
+    <tr><th>Category</th><th>Collected</th></tr>
+    <tr><td>Identifiers (name, email, IP address)</td><td>Yes</td></tr>
+    <tr><td>Commercial information (subscription, payment history)</td><td>Yes</td></tr>
+    <tr><td>Internet activity (pages visited, features used)</td><td>Yes</td></tr>
+    <tr><td>Professional information (business name, role)</td><td>Yes</td></tr>
+    <tr><td>Inferences (dashboard preferences, AI usage patterns)</td><td>Yes</td></tr>
+    <tr><td>Biometric data</td><td>No</td></tr>
+    <tr><td>Precise geolocation</td><td>No</td></tr>
+  </table>
+
+  <h2 id="pp-children">12. Children's Privacy</h2>
+  <p>The Service is intended for business use by adults. We do not knowingly collect personal information from individuals under the age of 16. If you believe we have inadvertently collected information from a minor, contact us at <a href="mailto:info@myopal.io">info@myopal.io</a>.</p>
+
+  <h2 id="pp-changes">13. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you by email at least 14 days before the changes take effect. Your continued use of the Service after the effective date constitutes acceptance of the updated policy.</p>
+
+  <h2 id="pp-contact">14. Contact</h2>
+  <p><strong>[OPAL ENTITY NAME], a Delaware limited liability company</strong><br>
+  Email: <a href="mailto:info@myopal.io">info@myopal.io</a><br>
+  Website: <a href="https://www.myopal.io">www.myopal.io</a></p>
+</div>
+</div>
+
 
 <!-- ════════════════════════════════
      FOOTER (shared)
@@ -1189,8 +1558,8 @@ footer{background:var(--midnight);padding:52px}
     <div class="ft-col">
       <h5>Legal</h5>
       <ul>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms</a></li>
+        <li><a onclick="goTo('tos')">Terms of Service</a></li>
+        <li><a onclick="goTo('privacy')">Privacy Policy</a></li>
         <li><a href="#">Security</a></li>
       </ul>
     </div>
@@ -1208,7 +1577,10 @@ function goTo(page) {
   if (target) {
     target.classList.add('active');
     window.scrollTo(0, 0);
-    document.title = 'Opal' + (page !== 'home' ? ' — ' + page.charAt(0).toUpperCase() + page.slice(1) : ' — AI-Powered Business Management Software');
+    const pageTitles = { tos: 'Terms of Service', privacy: 'Privacy Policy' };
+    document.title = page === 'home'
+      ? 'Opal — AI-Powered Business Management Software'
+      : 'Opal — ' + (pageTitles[page] || page.charAt(0).toUpperCase() + page.slice(1));
   }
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   const map = {hub:'Product',pulse:'Product',crew:'Product',connect:'Product',canvas:'Product',integrations:'Integrations',pricing:'Pricing',about:'About'};
