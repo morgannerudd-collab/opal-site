@@ -1,72 +1,37 @@
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { createSupabaseServerClient } from "@/lib/supabase-server";
-import { getStripeServerClient } from "@/lib/stripe";
+import Stripe from "stripe";
 
-export const runtime = "nodejs";
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2024-06-20",
+});
 
-export async function POST(): Promise<NextResponse> {
-  const supabase = await createSupabaseServerClient();
+export async function POST() {
+  const supabase = createRouteHandlerClient({ cookies });
   const {
     data: { user },
-    error: authError,
   } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const { data: profile, error: profileError } = await supabase
+  const { data: profile } = await supabase
     .from("profiles")
     .select("stripe_subscription_id")
     .eq("id", user.id)
-    .maybeSingle();
-
-  if (profileError) {
-    return NextResponse.json({ error: "Unable to load profile" }, { status: 500 });
-  }
+    .single();
 
   if (!profile?.stripe_subscription_id) {
     return NextResponse.json({ error: "No active subscription found" }, { status: 400 });
   }
 
-  const stripe = getStripeServerClient();
+  const subscription = await stripe.subscriptions.update(profile.stripe_subscription_id, {
+    cancel_at_period_end: true,
+  });
 
-  try {
-    const subscription = await stripe.subscriptions.update(profile.stripe_subscription_id, {
-      cancel_at_period_end: true,
-      expand: ["items"],
-    });
+  await supabase.from("profiles").update({ subscription_status: "cancel_pending" }).eq("id", user.id);
 
-    const periodEndUnix = subscription.items.data[0]?.current_period_end;
-    if (periodEndUnix == null) {
-      return NextResponse.json(
-        { error: "Could not read subscription billing period end" },
-        { status: 500 },
-      );
-    }
-
-    const { error: updateError } = await supabase
-      .from("profiles")
-      .update({
-        subscription_status: "cancel_pending",
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", user.id);
-
-    if (updateError) {
-      console.error("[stripe/cancel] profile update error", updateError);
-      return NextResponse.json({ error: "Could not update subscription status" }, { status: 500 });
-    }
-
-    const cancelDate = new Date(periodEndUnix * 1000);
-
-    return NextResponse.json({
-      success: true,
-      cancel_date: cancelDate.toLocaleDateString(),
-    });
-  } catch (e) {
-    const message = e instanceof Error ? e.message : "Unable to cancel subscription";
-    console.error("[stripe/cancel]", e);
-    return NextResponse.json({ error: message }, { status: 500 });
-  }
+  return NextResponse.json({
+    success: true,
+    cancel_date: new Date(subscription.current_period_end * 1000).toLocaleDateString(),
+  });
 }
