@@ -1,4 +1,12 @@
+# Build artifacts
 .next/
 node_modules/
 tsconfig.tsbuildinfo
 next-env.d.ts
+
+# Backups
+*.bak
+*.bak_*
+
+# OS noise
+.DS_Store
