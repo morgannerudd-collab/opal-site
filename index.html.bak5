@@ -1662,7 +1662,7 @@ footer{background:var(--midnight);padding:52px}
 </footer>
 
 <script>
-function goTo(page, fromHistory) {
+function goTo(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) {
@@ -1678,37 +1678,8 @@ function goTo(page, fromHistory) {
   if (map[page]) {
     document.querySelectorAll('.nav-btn').forEach(b => { if(b.textContent.trim().startsWith(map[page])) b.classList.add('active'); });
   }
-  // Update the address bar so every page has a real, linkable URL.
-  // fromHistory = true means the browser already changed the URL (back/forward),
-  // so pushing again would create a loop.
-  if (!fromHistory && target) {
-    const path = (page === 'home') ? '/' : '/' + page;
-    if (window.location.pathname !== path) {
-      history.pushState({ page: page }, '', path);
-    }
-  }
-
   setTimeout(() => { runReveals(target); }, 60);
 }
-
-// Back/forward buttons
-window.addEventListener('popstate', function (e) {
-  const page = (e.state && e.state.page) || pageFromPath();
-  goTo(page, true);
-});
-
-// Read the current URL and return a page id ('/about' -> 'about')
-function pageFromPath() {
-  const slug = window.location.pathname.replace(/^\/+|\/+$/g, '');
-  return (slug && document.getElementById('page-' + slug)) ? slug : 'home';
-}
-
-// On first load, show the page that matches the URL
-(function () {
-  const start = pageFromPath();
-  if (start !== 'home') { goTo(start, true); }
-  history.replaceState({ page: start }, '', window.location.pathname);
-})();
 
 function runReveals(container) {
   const sel = '.reveal,.reveal-left,.reveal-right,.reveal-scale';
