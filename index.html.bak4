@@ -88,16 +88,7 @@ nav{
 
 /* dropdown panel */
 .dropdown{
-  position:absolute;top:100%;left:0;
-  margin-top:8px;
-  z-index:300;
-}
-/* invisible hover bridge across the 8px gap */
-.dropdown::before{
-  content:"";position:absolute;
-  top:-10px;left:0;right:0;height:10px;
-}
-.dropdown{
+  position:absolute;top:calc(100% + 8px);left:0;
   background:var(--white);border:1px solid var(--border);
   border-radius:14px;padding:10px;
   min-width:220px;
