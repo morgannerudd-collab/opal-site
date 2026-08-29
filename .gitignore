@@ -10,3 +10,4 @@ next-env.d.ts
 
 # OS noise
 .DS_Store
+*.bak*
