@@ -1102,38 +1102,40 @@ footer{background:var(--midnight);padding:52px}
 
           <div class="ey">About our creator</div>
           <h2 class="s-h2">Why I built <em>this.</em></h2>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:300;font-style:italic;color:var(--sage);line-height:1.35;margin-top:24px;margin-bottom:26px">&ldquo;The day I decided to leave my nine&#8209;to&#8209;five behind, my life changed.&rdquo;</div>
+          <p class="s-sub" style="margin-bottom:28px">The long version, so the short one has somewhere to come from.</p>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">I spent twenty years helping other people's companies grow, learning in detail how to tell whether a business was actually working and then helping them to fix it. Somewhere in there I got restless. I wanted to build something of my own, run it the way I actually believe business should be run, and be useful to the people around me.</p>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:300;font-style:italic;color:var(--sage);line-height:1.35;margin-bottom:26px">The day I decided to leave my nine&#8209;to&#8209;five behind, my life changed.</div>
+
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">I spent twenty years helping other people's companies grow &mdash; learning, in detail, how to tell whether a business was actually working. Somewhere in there I got restless. I wanted to build something of my own, run it the way I actually believe business should be run, and be useful to the people around me.</p>
 
           <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">For a long time I thought I was the one missing something. Eventually I worked out it was the other way around.</p>
 
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--midnight);margin-top:34px;margin-bottom:12px">So what is Opal?</div>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:20px">While I was hunting for my own answer, starting businesses and chasing ideas and trying to work out what I wanted, I kept hitting the same wall. There was nothing out there, accessible to everyone, that could answer the question I had spent my whole career answering for other people:</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:20px">While I was hunting for my own answer &mdash; starting businesses, chasing ideas, trying to work out what I wanted &mdash; I kept hitting the same wall. There was nothing out there, accessible to everyone, that could answer the question I had spent my whole career answering for other people:</p>
 
           <div style="border-left:2px solid var(--sage);padding:4px 0 4px 20px;margin-bottom:20px">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.4">Am I successful, and what do I need to do to get where I want to be?</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.4">Am I successful &mdash; and what do I need to do to get where I want to be?</div>
           </div>
 
           <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">Nobody had built that for the rest of us. So I did.</p>
 
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--midnight);margin-top:34px;margin-bottom:12px">Why it's called Opal</div>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">An opal is unlike any other stone. It takes in light from every direction, and what you see depends on how you look at it. That is exactly what I wanted to build: something that reads a business from every angle and shows each person what they need to see.</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">An opal is unlike any other stone. It takes in light from every direction, and what you see depends on how you look at it. That is exactly what I wanted to build &mdash; something that reads a business from every angle and shows each person what they need to see.</p>
 
           <p style="font-size:15px;font-weight:500;color:var(--midnight);line-height:1.8;margin-bottom:16px">Built on the same proven strategy the largest companies rely on. Made simple enough for the smallest of us, still figuring it out.</p>
 
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--midnight);margin-top:34px;margin-bottom:12px">On AI</div>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">AI is a buzzword. It's a tactic. Everyone is shouting &ldquo;look at us, we have AI.&rdquo; But how many are solving your problems instead of handing you new ones?</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">AI is a buzzword. It's a tactic. Everyone is shouting &ldquo;look at us, we have AI&rdquo; &mdash; but how many are solving your problems instead of handing you new ones?</p>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">This was never about replacing anybody. It's about unlocking Sarah in Texas, who runs a commercial cleaning company and has no time to take a course on prompting or pay for a tool she doesn't know what to ask. Sarah wants to build something that lasts for her three kids, and still make the soccer games, the dance recitals and prom, without wondering what her business is doing while she's gone.</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">This was never about replacing anybody. It's about unlocking Sarah in Texas, who runs a commercial cleaning company and has no time to take a course on prompting or pay for a tool she doesn't know what to ask. Sarah wants to build something that lasts for her three kids, and still make the soccer games, the dance recitals and prom &mdash; without wondering what her business is doing while she's gone.</p>
 
           <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.4;margin-top:30px">That's a lofty goal. But somebody had to start. So why not me. Why not Opal.</div>
 
           <div style="background:var(--air);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:24px 26px;margin-top:34px">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.45">Opal is your right hand in business. It tells you what you need to know, when you need to know it, then helps you go and do something about it.</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.45">Opal is your right hand in business. It tells you what you need to know, when you need to know it &mdash; then helps you go and do something about it.</div>
           </div>
 
           <div style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary);margin-top:26px">Morganne Rudd &middot; Opal Technologies &middot; myopal.io</div>
