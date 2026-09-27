@@ -699,6 +699,18 @@ footer{background:var(--midnight);padding:52px}
 .wio-talk:hover{color:var(--mist)}
 @media (prefers-reduced-motion: reduce){.wio-dot{animation:none}.wio-beta-pill{animation:none}}
 @media (max-width:600px){.wio-beta-pill{flex-wrap:wrap;justify-content:center;border-radius:14px}}
+
+/* ===== Why Opal band — 2026-09-26 ===== */
+.wio-opal-why{padding:80px 24px}
+.wio-ow{display:flex;align-items:center;justify-content:center;gap:40px;max-width:820px}
+.wio-gem{width:96px;height:96px;border-radius:50%;flex-shrink:0;position:relative;background:conic-gradient(from 0deg,#EBF3EF,#C5DEDA,#E6DDF0,#F6EADC,#CFE6F2,#BFE3D6,#F3E3EC,#EBF3EF);animation:wio-spin 16s linear infinite;box-shadow:0 12px 32px rgba(74,138,112,.18),inset 0 0 0 1px rgba(20,28,32,.05)}
+.wio-gem::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.85),rgba(255,255,255,0) 55%)}
+@keyframes wio-spin{to{transform:rotate(360deg)}}
+.wio-ow-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(24px,2.6vw,30px);line-height:1.3;color:var(--midnight);margin:0 0 14px}
+.wio-ow-a{font-size:13px;font-weight:500;color:var(--sage);text-decoration:none}
+.wio-ow-a:hover{color:var(--midnight)}
+@media (max-width:700px){.wio-ow{flex-direction:column;text-align:center;gap:24px}.wio-gem{width:72px;height:72px}}
+@media (prefers-reduced-motion: reduce){.wio-gem{animation:none}}
 </style>
 </head>
 <body>
@@ -779,7 +791,7 @@ footer{background:var(--midnight);padding:52px}
   <div class="hero">
     <div class="hero-ey">Your right hand in business</div>
     <h1 class="hero-h1">The clarity<br>you've been <em>looking for.</em></h1>
-    <p class="hero-sub">Opal connects the tools you already run your business on, learns what your numbers mean to <em>you</em>, and tells you every morning how you're really doing — and what to do next.</p>
+    <p class="hero-sub">Opal connects the tools you already run your business on, learns what your numbers mean to <em>you</em>, and tells you how you're really doing — and what to do next — whenever you want to know.</p>
     <div class="hero-actions">
       <a href="https://app.myopal.io/register" class="btn-hero-p">Start for free</a>
       <a href="#what-is-opal" class="btn-hero-g" onclick="event.preventDefault();document.getElementById('what-is-opal').scrollIntoView({behavior:'smooth'})">What is Opal?</a>
@@ -824,12 +836,12 @@ footer{background:var(--midnight);padding:52px}
     <div class="wio-in">
       <div class="wio-ey">So what is Opal?</div>
       <h2 class="wio-h2">The right hand you <em>haven't hired yet.</em></h2>
-      <p class="wio-lead">Opal sits on top of the tools you already use — your books, your CRM, your bank, your spreadsheets — and reads them the way a great operator would. Then it tells you what it sees, in plain words, every morning.</p>
+      <p class="wio-lead">Opal sits on top of the tools you already use — your books, your CRM, your bank, your spreadsheets — and reads them the way a great operator would. Then it tells you what it sees, in plain words, whenever you ask.</p>
       <div class="wio-g3">
         <div class="wio-card">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3F7A62" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-          <h3>A morning conversation</h3>
-          <p>Like talking to someone who read everything overnight and only tells you what matters. No digging through tabs. No spreadsheets at 6am.</p>
+          <h3>A conversation, whenever you want one</h3>
+          <p>Like talking to someone who's already read everything and only tells you what matters. No digging through tabs. No spreadsheets at 6am.</p>
         </div>
         <div class="wio-card">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3F7A62" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
@@ -838,7 +850,7 @@ footer{background:var(--midnight);padding:52px}
         </div>
         <div class="wio-card">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3F7A62" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17h.01"/></svg>
-          <h3>One question, answered daily</h3>
+          <h3>One question, answered anytime</h3>
           <p><em>Am I successful, and what do I need to do to get where I want to be?</em> Every part of Opal exists to answer that.</p>
         </div>
       </div>
@@ -856,9 +868,9 @@ footer{background:var(--midnight);padding:52px}
             <div class="wio-steps-wrap">
               <div class="wio-line"><i class="wio-line-fill"></i></div>
               <div class="wio-steps" role="tablist" aria-label="The three questions">
-                <button type="button" class="wio-step-btn" role="tab" data-body="Your month at a glance, every morning. What moved, what's on track, and the one or two things that need you today.">
+                <button type="button" class="wio-step-btn" role="tab" data-body="Your month at a glance, whenever you open it. What moved, what's on track, and the one or two things that need you today.">
                   <span class="wio-sb-top"><span class="wio-sb-num">01</span><span class="wio-sb-q">How am I doing?</span><span class="wio-sb-tag">Pulse</span></span>
-                  <span class="wio-sb-body">Your month at a glance, every morning. What moved, what's on track, and the one or two things that need you today.</span>
+                  <span class="wio-sb-body">Your month at a glance, whenever you open it. What moved, what's on track, and the one or two things that need you today.</span>
                 </button>
                 <button type="button" class="wio-step-btn" role="tab" data-body="Follows the money from first lead to final margin — where your customers come from, what they're worth, and what it costs to serve them.">
                   <span class="wio-sb-top"><span class="wio-sb-num">02</span><span class="wio-sb-q">Why?</span><span class="wio-sb-tag">Deep Dive</span></span>
@@ -976,7 +988,7 @@ footer{background:var(--midnight);padding:52px}
         <div class="vp-card reveal">
           <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M16.24 7.76a6 6 0 010 8.49M4.93 4.93a10 10 0 000 14.14M7.76 7.76a6 6 0 000 8.49"/></svg></div>
           <h3 class="vp-h3">Powered by AI</h3>
-          <p class="vp-p">Opal doesn't just display data — it understands it. Every trend, every anomaly analyzed in real time so your morning view tells you exactly what to do.</p>
+          <p class="vp-p">Opal doesn't just display data — it understands it. Every trend, every anomaly analyzed in real time so every time you look, Opal tells you exactly what to do.</p>
         </div>
         <div class="vp-card vp-span2 reveal">
           <div class="vp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="3"/><path d="M3 21v-1a7 7 0 0114 0v1"/><path d="M16 11a4 4 0 010 8"/><path d="M21 14a4 4 0 01-5 3.87"/></svg></div>
@@ -1060,6 +1072,17 @@ footer{background:var(--midnight);padding:52px}
         <div><h3>Not another dashboard to learn.</h3><p>If you have to hunt for the answer, we haven't done our job.</p></div>
         <div><h3>Not a replacement for your tools — or your accountant.</h3><p>Your data stays where it lives. Opal makes sense of it.</p></div>
         <div><h3>Not AI for the sake of AI.</h3><p>It only tells you things it can back up with your own numbers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wio-sec wio-chalk wio-opal-why">
+    <div class="wio-in wio-ow">
+      <div class="wio-gem" aria-hidden="true"></div>
+      <div>
+        <div class="wio-ey">Why “Opal”?</div>
+        <p class="wio-ow-t">An opal changes color depending on how you look at it. Your business deserves the same: a view that fits you, moves with you, and never goes stale.</p>
+        <a class="wio-ow-a" href="/about" onclick="event.preventDefault();goTo('about')">Read the story →</a>
       </div>
     </div>
   </section>
@@ -1455,7 +1478,7 @@ footer{background:var(--midnight);padding:52px}
   <div class="page-header">
     <div class="ey">About Opal</div>
     <h1>Built for operators.<br><em>By operators.</em></h1>
-    <p>Opal was built because the tools already exist — they just don't talk to each other. We built the AI-powered layer that connects them, makes sense of them, and delivers clarity every morning.</p>
+    <p>Opal was built because the tools already exist — they just don't talk to each other. We built the AI-powered layer that connects them, makes sense of them, and gives you clarity whenever you need it.</p>
   </div>
 
   <!-- ===== ABOUT OUR CREATOR ===== -->
@@ -1506,7 +1529,7 @@ footer{background:var(--midnight);padding:52px}
 
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--midnight);margin-top:34px;margin-bottom:12px">So what is Opal?</div>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:20px">While I was hunting for my own answer, starting businesses and chasing ideas and trying to work out what I wanted, I kept hitting the same wall. There was nothing out there, accessible to everyone, that could answer the question I had spent my whole career answering for other people:</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:20px">While I was hunting for my own answer — starting businesses, chasing ideas, trying to work out what I wanted — I kept hitting the same wall. There was nothing out there, accessible to everyone, that could answer the question I'd spent my whole career answering for other people:</p>
 
           <div style="border-left:2px solid var(--sage);padding:4px 0 4px 20px;margin-bottom:20px">
             <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;color:var(--midnight);line-height:1.4">Am I successful, and what do I need to do to get where I want to be?</div>
@@ -1514,9 +1537,13 @@ footer{background:var(--midnight);padding:52px}
 
           <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">Nobody had built that for the rest of us. So I did.</p>
 
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">Opal connects the tools you already run your business on, learns what your numbers mean to you, and tells you in plain words how you're really doing and what to do next — whenever you want to know. It isn't a dashboard to decode or a report that shows up once a month. It's a right hand, there when you need it.</p>
+
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--midnight);margin-top:34px;margin-bottom:12px">Why it's called Opal</div>
 
-          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">An opal is unlike any other stone. It takes in light from every direction, and what you see depends on how you look at it. That is exactly what I wanted to build: something that reads a business from every angle and shows each person what they need to see.</p>
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">An opal is a natural gem unlike any other. Turn it in the light and the colors change. It's the same stone, but what you see depends on how you look at it.</p>
+
+          <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px">That's what I wanted Opal to be: flexible, not fixed. Natural, not forced. It shows each person what they need to see, and it moves as your business moves. Never stuck. Never stale.</p>
 
           <p style="font-size:15px;font-weight:500;color:var(--midnight);line-height:1.8;margin-bottom:16px">Built on the same proven strategy the largest companies rely on. Made simple enough for the smallest of us, still figuring it out.</p>
 
