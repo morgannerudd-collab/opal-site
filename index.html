@@ -711,6 +711,9 @@ footer{background:var(--midnight);padding:52px}
 .wio-ow-a:hover{color:var(--midnight)}
 @media (max-width:700px){.wio-ow{flex-direction:column;text-align:center;gap:24px}.wio-gem{width:72px;height:72px}}
 @media (prefers-reduced-motion: reduce){.wio-gem{animation:none}}
+
+/* ===== Integrations tiles — 2026-09-26 ===== */
+.wio-mono{width:36px;height:36px;border-radius:8px;background:var(--air);border:1px solid var(--mist);display:inline-flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--sage);letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -747,7 +750,7 @@ footer{background:var(--midnight);padding:52px}
         </div>
         <div class="dd-item" onclick="goTo('pulse')">
           <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <div><div class="dd-text-name">Daily Pulse</div><div class="dd-text-desc">Your AI morning briefing</div></div>
+          <div><div class="dd-text-name">Pulse</div><div class="dd-text-desc">Your business at a glance</div></div>
         </div>
         <div class="dd-item" onclick="goTo('crew')">
           <div class="dd-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -1013,9 +1016,9 @@ footer{background:var(--midnight);padding:52px}
       <p class="s-sub">One platform. Every business. Total clarity.</p>
       <div class="feat-grid" style="margin-top:40px">
         <div class="fc reveal" onclick="goTo('pulse')" style="cursor:pointer">
-          <div class="ftag">Daily Pulse</div>
-          <h3 class="fh3">Your AI morning briefing</h3>
-          <p class="fp">Every morning, Opal surfaces what moved, what needs attention, and what to do next — before anything else.</p>
+          <div class="ftag">Pulse</div>
+          <h3 class="fh3">Your business at a glance</h3>
+          <p class="fp">Whenever you open Opal, it shows you what moved, what needs attention, and what to do next.</p>
         </div>
         <div class="fc reveal" onclick="goTo('hub')" style="cursor:pointer">
           <div class="ftag">Opal Hub</div>
@@ -1044,7 +1047,7 @@ footer{background:var(--midnight);padding:52px}
       <div class="crew-grid">
         <div class="crew-c">
           <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
-          <h4>Finance</h4><p>P&L monitoring, cash flow, expense alerts. Every dollar accounted for, every morning.</p>
+          <h4>Finance</h4><p>P&L monitoring, cash flow, expense alerts. Every dollar accounted for.</p>
         </div>
         <div class="crew-c">
           <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
@@ -1197,9 +1200,9 @@ footer{background:var(--midnight);padding:52px}
 ════════════════════════════════ -->
 <div class="page" id="page-pulse">
   <div class="page-header">
-    <div class="ey">Daily Pulse</div>
-    <h1>Your morning.<br><em>Already done.</em></h1>
-    <p>Every morning, Opal delivers an AI-powered briefing across every business you run. What moved, what needs attention, what to do next — waiting before you've had coffee.</p>
+    <div class="ey">Pulse</div>
+    <h1>Your business.<br><em>At a glance.</em></h1>
+    <p>Whenever you want to know how things are going, Pulse shows you — across every business you run. What moved, what needs attention, and what to do next, in plain words.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="https://app.myopal.io/register" class="btn-hero-p">Start for free</a>
       <a href="mailto:morganne@myopal.io?subject=Request%20a%20sample%20Daily%20Pulse%20briefing" class="btn-hero-g">See a sample briefing</a>
@@ -1210,8 +1213,8 @@ footer{background:var(--midnight);padding:52px}
       <div class="two-col reveal">
         <div>
           <div class="ey">How it works</div>
-          <h2 class="s-h2">Opal works while<br>you <em>sleep.</em></h2>
-          <p class="s-sub" style="margin-bottom:20px">Every night, Opal scans every connected tool, every business metric, and every trend across your portfolio. By morning, it's synthesized everything into a single clear briefing — no noise, no guesswork.</p>
+          <h2 class="s-h2">Always current.<br>Ready <em>when you are.</em></h2>
+          <p class="s-sub" style="margin-bottom:20px">Opal keeps every connected tool, business metric and trend across your portfolio up to date. Whenever you check in, it's already pulled together into one clear picture — no noise, no guesswork.</p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
             <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>AI-generated insights, not just data dumps</li>
             <li style="display:flex;gap:10px;font-size:14px;font-weight:300;color:var(--text-secondary)"><span style="color:var(--sage);flex-shrink:0">—</span>Anomalies and trends surfaced automatically</li>
@@ -1221,7 +1224,7 @@ footer{background:var(--midnight);padding:52px}
         </div>
         <div class="two-col-visual" style="padding:20px">
           <div style="width:100%;background:var(--midnight);border-radius:10px;padding:18px 20px;font-family:var(--app-font)">
-            <div style="font-size:10px;font-weight:600;color:var(--mist);letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px">Saturday, March 28 · Daily Pulse</div>
+            <div style="font-size:10px;font-weight:600;color:var(--mist);letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px">Saturday, March 28 · Pulse</div>
             <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px"><div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">Van Fleet Co — 8 bookings this week, up 23%. Revenue on track at $12,400.</div></div>
             <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px"><div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">Studio North — 4 new leads from yesterday's campaign. Pipeline healthy.</div></div>
             <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:10px"><div style="width:5px;height:5px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px"></div><div style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5">Riviera Cafe — Margin at 18.4%, below your 22% target. Food cost creeping for 3 weeks. Suggested action: review supplier pricing today.</div></div>
@@ -1231,7 +1234,7 @@ footer{background:var(--midnight);padding:52px}
       </div>
     </div>
   </section>
-  <div class="cta-block"><h2 class="cta-h2">Your clearest morning<br><em>starts today.</em></h2><p class="cta-sub">Connect your tools and receive your first Daily Pulse within minutes.</p><div style="display:flex;gap:12px;justify-content:center"><a href="https://app.myopal.io/register" class="btn-hero-p">Start for free</a></div><p class="cta-note">14-day free trial. No credit card.</p></div>
+  <div class="cta-block"><h2 class="cta-h2">Your clearest view<br><em>starts today.</em></h2><p class="cta-sub">Connect your tools and see your first Pulse within minutes.</p><div style="display:flex;gap:12px;justify-content:center"><a href="https://app.myopal.io/register" class="btn-hero-p">Start for free</a></div><p class="cta-note">14-day free trial. No credit card.</p></div>
 </div>
 
 
@@ -1251,11 +1254,11 @@ footer{background:var(--midnight);padding:52px}
     <div class="s-in">
       <div class="ey">The Crew</div>
       <h2 class="s-h2">Four agents.<br><em>Every function covered.</em></h2>
-      <p class="s-sub">Each Opal Crew agent is specialized for one domain — and they work together to give you the complete picture every morning.</p>
+      <p class="s-sub">Each Opal Crew agent is specialized for one domain — and they work together to give you the complete picture whenever you look.</p>
       <div class="crew-grid">
         <div class="crew-c">
           <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
-          <h4>Finance Crew</h4><p>Monitors P&L, flags cash flow risks, tracks expense anomalies, and keeps your books reconciled — every business, every morning.</p>
+          <h4>Finance Crew</h4><p>Monitors P&L, flags cash flow risks, tracks expense anomalies, and keeps your books reconciled — every business, all the time.</p>
         </div>
         <div class="crew-c">
           <div class="crew-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5DEDA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
@@ -1299,14 +1302,17 @@ footer{background:var(--midnight);padding:52px}
         <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2CA01C"/><path d="M18 8C12.5 8 8 12.5 8 18s4.5 10 10 10c1.8 0 3.4-.5 4.8-1.3l-2.4-2.9c-.7.3-1.6.5-2.4.5-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6v1.2h2.4c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2H24v2.4h2.4c2 0 3.6-1.6 3.6-3.6V18c0-5.5-4.5-10-10-10z" fill="white"/></svg></div><div class="int-nm">QuickBooks</div></div>
         <div class="int-c"><div class="int-logo"><svg width="56" height="36" viewBox="0 0 56 24" fill="none"><rect width="56" height="24" rx="5" fill="#635BFF"/><path d="M25.5 8c0-1 .8-1.3 2-1.3 1.9 0 4.2.6 6 1.5V4.5C31.8 3.7 30 3.3 27.5 3.3 23.2 3.3 20 5.4 20 8.7c0 5 6.8 4.2 6.8 6.3 0 1.1-1 1.5-2.3 1.5-2 0-4.7-.8-6.7-2v4c2.2 1 4.5 1.4 6.7 1.4 4.4 0 7.3-2 7.3-5.3.1-5.4-6.3-4.5-6.3-6.6z" fill="white"/></svg></div><div class="int-nm">Stripe</div></div>
         <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="11" r="3.5" fill="#FF7A59"/><circle cx="18" cy="25" r="3.5" fill="#FF7A59"/><circle cx="8" cy="18" r="3.5" fill="#FF7A59"/><circle cx="28" cy="18" r="3.5" fill="#FF7A59"/><circle cx="18" cy="18" r="5" fill="#FF7A59"/></svg></div><div class="int-nm">HubSpot</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00D7AB"/><path d="M6 19 Q10.5 10 15 19 Q19.5 28 24 19 Q28.5 10 33 19" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Wave</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 15h9c.1.6.1 1 .1 1.5C27 21.5 23.5 25 18.1 25 13 25 9 21 9 16s4-9 9-9c2.5 0 4.5.9 6 2.4l-2.3 2.2C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6s2.7 6 6 6c3 0 5-1.7 5.4-4H18v-3z" fill="#4285F4"/><path d="M9 16c0-5 4-9 9-9 2.5 0 4.5.9 6 2.4L21.7 11.6C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6H9z" fill="#EA4335"/><path d="M18 22c2.8 0 5.3-1.1 7-3l-2.6-2C21.4 18.3 19.8 19 18 19c-2.8 0-5.2-1.9-6-4.5L9.2 16C10.6 19.5 14 22 18 22z" fill="#34A853"/><path d="M12 14.4C11.8 13.8 11.8 13.4 11.8 13c0-.4.1-.8.2-1.4L9.2 10C8.5 11 8 13 8 13s.2 2.1.8 3.3L12 14.4z" fill="#FBBC05"/></svg></div><div class="int-nm">Google Workspace</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 15h9c.1.6.1 1 .1 1.5C27 21.5 23.5 25 18.1 25 13 25 9 21 9 16s4-9 9-9c2.5 0 4.5.9 6 2.4l-2.3 2.2C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6s2.7 6 6 6c3 0 5-1.7 5.4-4H18v-3z" fill="#4285F4"/><path d="M9 16c0-5 4-9 9-9 2.5 0 4.5.9 6 2.4L21.7 11.6C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6H9z" fill="#EA4335"/><path d="M18 22c2.8 0 5.3-1.1 7-3l-2.6-2C21.4 18.3 19.8 19 18 19c-2.8 0-5.2-1.9-6-4.5L9.2 16C10.6 19.5 14 22 18 22z" fill="#34A853"/><path d="M12 14.4C11.8 13.8 11.8 13.4 11.8 13c0-.4.1-.8.2-1.4L9.2 10C8.5 11 8 13 8 13s.2 2.1.8 3.3L12 14.4z" fill="#FBBC05"/></svg></div><div class="int-nm">Google Sheets</div></div>
         <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#006BFF"/><rect x="9" y="11" width="18" height="16" rx="2.5" fill="white"/><rect x="13" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="20" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="13" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/><rect x="18.5" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/></svg></div><div class="int-nm">Calendly</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1F8EFA"/><rect x="9" y="11" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="16" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="21" width="11" height="2.5" rx="1.2" fill="white"/></svg></div><div class="int-nm">Intercom</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2E7D32"/><polygon points="18,8 28,26 8,26" fill="white"/><polygon points="18,14 26,26 10,26" fill="#2E7D32"/><rect x="16" y="26" width="4" height="4" rx=".5" fill="white"/></svg></div><div class="int-nm">Outdoorsy</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00A3E0"/><circle cx="18" cy="15" r="6" fill="white"/><circle cx="18" cy="15" r="3" fill="#00A3E0"/><path d="M12 26 Q18 22 24 26" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Bouncie</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1C6EBF"/><circle cx="18" cy="17" r="4" fill="white"/><circle cx="18" cy="17" r="1.8" fill="#1C6EBF"/></svg></div><div class="int-nm">RVezy</div></div>
-        <div class="int-more"><span>+ many more connected via Make.com</span></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Xe</span></div><div class="int-nm">Xero</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Zo</span></div><div class="int-nm">Zoho CRM</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span></div><div class="int-nm">Bank &amp; credit cards</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span></div><div class="int-nm">Google reviews</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Sl</span></div><div class="int-nm">Slack</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">GA</span></div><div class="int-nm">Google Analytics</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Kl</span></div><div class="int-nm">Klaviyo</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Mc</span></div><div class="int-nm">Mailchimp</div></div>
+        <div class="int-more"><span>+ many more — tell us what you use</span></div>
       </div>
     </div>
   </section>
@@ -1370,14 +1376,17 @@ footer{background:var(--midnight);padding:52px}
         <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2CA01C"/><path d="M18 8C12.5 8 8 12.5 8 18s4.5 10 10 10c1.8 0 3.4-.5 4.8-1.3l-2.4-2.9c-.7.3-1.6.5-2.4.5-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6v1.2h2.4c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2H24v2.4h2.4c2 0 3.6-1.6 3.6-3.6V18c0-5.5-4.5-10-10-10z" fill="white"/></svg></div><div class="int-nm">QuickBooks</div></div>
         <div class="int-c"><div class="int-logo"><svg width="56" height="36" viewBox="0 0 56 24" fill="none"><rect width="56" height="24" rx="5" fill="#635BFF"/><path d="M25.5 8c0-1 .8-1.3 2-1.3 1.9 0 4.2.6 6 1.5V4.5C31.8 3.7 30 3.3 27.5 3.3 23.2 3.3 20 5.4 20 8.7c0 5 6.8 4.2 6.8 6.3 0 1.1-1 1.5-2.3 1.5-2 0-4.7-.8-6.7-2v4c2.2 1 4.5 1.4 6.7 1.4 4.4 0 7.3-2 7.3-5.3.1-5.4-6.3-4.5-6.3-6.6z" fill="white"/></svg></div><div class="int-nm">Stripe</div></div>
         <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="11" r="3.5" fill="#FF7A59"/><circle cx="18" cy="25" r="3.5" fill="#FF7A59"/><circle cx="8" cy="18" r="3.5" fill="#FF7A59"/><circle cx="28" cy="18" r="3.5" fill="#FF7A59"/><circle cx="18" cy="18" r="5" fill="#FF7A59"/></svg></div><div class="int-nm">HubSpot</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00D7AB"/><path d="M6 19 Q10.5 10 15 19 Q19.5 28 24 19 Q28.5 10 33 19" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Wave</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 15h9c.1.6.1 1 .1 1.5C27 21.5 23.5 25 18.1 25 13 25 9 21 9 16s4-9 9-9c2.5 0 4.5.9 6 2.4l-2.3 2.2C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6s2.7 6 6 6c3 0 5-1.7 5.4-4H18v-3z" fill="#4285F4"/><path d="M9 16c0-5 4-9 9-9 2.5 0 4.5.9 6 2.4L21.7 11.6C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6H9z" fill="#EA4335"/><path d="M18 22c2.8 0 5.3-1.1 7-3l-2.6-2C21.4 18.3 19.8 19 18 19c-2.8 0-5.2-1.9-6-4.5L9.2 16C10.6 19.5 14 22 18 22z" fill="#34A853"/><path d="M12 14.4C11.8 13.8 11.8 13.4 11.8 13c0-.4.1-.8.2-1.4L9.2 10C8.5 11 8 13 8 13s.2 2.1.8 3.3L12 14.4z" fill="#FBBC05"/></svg></div><div class="int-nm">Google Workspace</div></div>
+        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 15h9c.1.6.1 1 .1 1.5C27 21.5 23.5 25 18.1 25 13 25 9 21 9 16s4-9 9-9c2.5 0 4.5.9 6 2.4l-2.3 2.2C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6s2.7 6 6 6c3 0 5-1.7 5.4-4H18v-3z" fill="#4285F4"/><path d="M9 16c0-5 4-9 9-9 2.5 0 4.5.9 6 2.4L21.7 11.6C20.7 10.7 19.4 10 18 10c-3.3 0-6 2.7-6 6H9z" fill="#EA4335"/><path d="M18 22c2.8 0 5.3-1.1 7-3l-2.6-2C21.4 18.3 19.8 19 18 19c-2.8 0-5.2-1.9-6-4.5L9.2 16C10.6 19.5 14 22 18 22z" fill="#34A853"/><path d="M12 14.4C11.8 13.8 11.8 13.4 11.8 13c0-.4.1-.8.2-1.4L9.2 10C8.5 11 8 13 8 13s.2 2.1.8 3.3L12 14.4z" fill="#FBBC05"/></svg></div><div class="int-nm">Google Sheets</div></div>
         <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#006BFF"/><rect x="9" y="11" width="18" height="16" rx="2.5" fill="white"/><rect x="13" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="20" y="8" width="3" height="6" rx="1.5" fill="#006BFF"/><rect x="13" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/><rect x="18.5" y="19" width="3.5" height="3.5" rx=".7" fill="#006BFF"/></svg></div><div class="int-nm">Calendly</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1F8EFA"/><rect x="9" y="11" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="16" width="18" height="2.5" rx="1.2" fill="white"/><rect x="9" y="21" width="11" height="2.5" rx="1.2" fill="white"/></svg></div><div class="int-nm">Intercom</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2E7D32"/><polygon points="18,8 28,26 8,26" fill="white"/><polygon points="18,14 26,26 10,26" fill="#2E7D32"/><rect x="16" y="26" width="4" height="4" rx=".5" fill="white"/></svg></div><div class="int-nm">Outdoorsy</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#00A3E0"/><circle cx="18" cy="15" r="6" fill="white"/><circle cx="18" cy="15" r="3" fill="#00A3E0"/><path d="M12 26 Q18 22 24 26" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div><div class="int-nm">Bouncie</div></div>
-        <div class="int-c"><div class="int-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#1C6EBF"/><circle cx="18" cy="17" r="4" fill="white"/><circle cx="18" cy="17" r="1.8" fill="#1C6EBF"/></svg></div><div class="int-nm">RVezy</div></div>
-        <div class="int-more"><span>+ many more connected via Make.com</span></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Xe</span></div><div class="int-nm">Xero</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Zo</span></div><div class="int-nm">Zoho CRM</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span></div><div class="int-nm">Bank &amp; credit cards</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A70" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span></div><div class="int-nm">Google reviews</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Sl</span></div><div class="int-nm">Slack</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">GA</span></div><div class="int-nm">Google Analytics</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Kl</span></div><div class="int-nm">Klaviyo</div></div>
+        <div class="int-c"><div class="int-logo"><span class="wio-mono">Mc</span></div><div class="int-nm">Mailchimp</div></div>
+        <div class="int-more"><span>+ many more — tell us what you use</span></div>
       </div>
     </div>
   </section>
@@ -1404,7 +1413,7 @@ footer{background:var(--midnight);padding:52px}
           <div class="pr-desc">Everything you need to get clear on your first businesses.</div>
           <ul class="pr-feats">
             <li>Up to 3 business entities</li>
-            <li>Daily Pulse briefing</li>
+            <li>Pulse — your business at a glance</li>
             <li>10 integrations</li>
             <li>AI insights on every metric</li>
             <li>Unlimited team members</li>
@@ -1769,15 +1778,15 @@ footer{background:var(--midnight);padding:52px}
 
   <h2 id="tos-trial">5. Free Trial</h2>
   <h3>5.1 Trial Terms</h3>
-  <p>We offer a 14-day free trial for new accounts. A valid credit card is required to start your trial. You will not be charged during the trial period. Each person and organization is eligible for one free trial. We reserve the right to modify or discontinue the free trial offer at any time.</p>
+  <p>We offer a 14-day free trial for new accounts. No credit card is required to start your trial. You will not be charged during the trial period. Each person and organization is eligible for one free trial. We reserve the right to modify or discontinue the free trial offer at any time.</p>
   <h3>5.2 Monthly Billing After Trial</h3>
-  <p>If you selected a monthly billing plan, your credit card will be automatically charged on day 15 at the applicable monthly rate. Your subscription will renew automatically on the same date each month until cancelled.</p>
+  <p>If you add a payment method and select a monthly billing plan, your card will be automatically charged on day 15 at the applicable monthly rate. Your subscription will renew automatically on the same date each month until cancelled. If you have not added a payment method by the end of your trial, your access will pause until you choose a plan.</p>
   <h3>5.3 Annual Billing After Trial</h3>
-  <p>If you selected an annual billing plan, your credit card will be charged for the full year's subscription on day 15 of your trial. Annual subscriptions renew automatically on your anniversary date each year at the then-current annual rate. You will receive a renewal reminder email at least 14 days before your annual renewal date.</p>
+  <p>If you add a payment method and select an annual billing plan, your card will be charged for the full year's subscription on day 15 of your trial. Annual subscriptions renew automatically on your anniversary date each year at the then-current annual rate. You will receive a renewal reminder email at least 14 days before your annual renewal date.</p>
   <h3>5.4 Cancellation After Annual Billing</h3>
   <p>If you cancel an annual subscription after day 15 but before your next renewal date, your access to the Service will continue until the end of your current annual subscription period. No partial refunds are issued for unused months of an annual plan.</p>
   <h3>5.5 Cancelling During Trial</h3>
-  <p>You may cancel at any time before day 15 to avoid being charged. To cancel, visit Account Settings → Billing → Cancel Subscription, or contact us at <a href="mailto:info@myopal.io">info@myopal.io</a> before the trial ends. Cancellations requested by email must be received before midnight Pacific Time on day 14.</p>
+  <p>You may cancel at any time before day 15 to avoid being charged. If you haven't added a payment method, you won't be charged at all. To cancel, visit Account Settings → Billing → Cancel Subscription, or contact us at <a href="mailto:info@myopal.io">info@myopal.io</a> before the trial ends. Cancellations requested by email must be received before midnight Pacific Time on day 14.</p>
 
   <h2 id="tos-ai">6. AI-Powered Features</h2>
   <h3>6.1 How AI Is Used</h3>
